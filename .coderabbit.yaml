@@ -1,0 +1,184 @@
+language: ko
+
+tone_instructions: >
+  1. 단순히 문제를 지적하는 것에 그치지 않고, 왜 문제인지 원인까지 설명해주세요.
+  2. 더 나은 코드를 작성할 수 있도록 관련 레퍼런스나 공식 문서를 함께 제안해주세요.
+  3. 잘된 부분은 가볍고 유쾌하게 칭찬해주세요.
+
+reviews:
+  #리뷰 강도 설정
+  profile: "assertive"
+
+  # 자동 리뷰 활성화
+  auto_review:
+    enabled: true
+
+  # 고수준 요약 포함
+  high_level_summary: true
+
+  # 인라인 코멘트 활성화
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+
+  # 코드 흐름을 시각적으로 파악할 수 있는 시퀀스 다이어그램 생성
+  sequence_diagrams: true
+
+  # 리뷰 포커스 영역
+  path_instructions:
+    - path: "**/*.swift"
+      instructions: |
+        - SwiftUI 구조, 상태 관리, 불필요한 뷰 갱신(re-render) 최적화에 집중
+        - ViewModel, UiState, 단방향 데이터 흐름(State Down, Event Up) 패턴 검토
+        - 네이밍 컨벤션, 가독성, Apple 권장 SwiftUI/Swift Concurrency 사용 준수 여부
+        - 강제 언래핑(`!`), `try!`, 강제 캐스팅처럼 크래시를 낼 수 있는 코드가 없는지 확인
+        - SwiftLint 규칙(`.swiftlint.yml`)을 지키는지 확인
+
+        # SwiftUI Convention
+        - 화면은 XxxView(ViewModel 보관·SideEffect 처리) / XxxScreen(UiState를 받아 UI만 그림) / Component(재사용 UI)로 분리되어 있는지 확인
+        - 재사용 View는 크기·위치·바깥 여백을 내부에서 정하지 않고 호출부(수정자)에 맡기는지 확인
+        - 재사용 컴포넌트 안에 `.frame(maxWidth: .infinity, maxHeight: .infinity)`나 바깥 `.padding()`을 강제하지 않았는지 확인
+        - 재사용 컴포넌트는 ViewModel이나 Coordinator를 직접 참조하지 않고 필요한 값과 이벤트 클로저를 파라미터로 받는지 확인
+        - 이벤트 클로저 이름은 `onTap`, `onBackTap`, `onValueChange`처럼 `on` prefix를 사용하는지 확인
+        - 비동기 작업은 `onAppear { Task { } }`가 아니라 `.task { }`로 시작하는지 확인
+        - 화면 상태(입력값, 서버 데이터)는 ViewModel이 가지고, `@State`는 UI 전용 로컬 상태와 ViewModel 보관에만 쓰는지 확인
+        - `ForEach`, `List`, `LazyVStack` 항목에 안정적인 id를 쓰는지 확인 (인덱스 id, 렌더링마다 새로 만드는 `UUID()` 금지)
+        - 하드코딩 색상·폰트(`.black`, `.font(.system(size:))`) 대신 디자인 시스템(`Core/DesignSystem`) 토큰과 컴포넌트를 쓰는지 확인
+        - Preview(`#Preview`)는 가짜 UiState나 샘플 모델만 쓰고, 실제 ViewModel·Repository·DIContainer·Network를 쓰지 않는지 확인
+        - Preview 이름만 보고 대상과 상태를 알 수 있는지 확인
+        - UI 모델은 `Equatable`을 따르는 `struct`이고, 목록에 쓰이면 `Identifiable`인지 확인
+
+        # Architecture
+        - 레이어 분리 준수: Presentation(ViewModel/View) ↔ Data(Repository/DataSource) 의존 방향이 단방향인지 확인
+        - 비즈니스 로직이 View에 섞여 있지 않고, ViewModel 또는 Repository의 책임이 명확한지 확인
+        - DTO(API 응답 모델)를 UI에 그대로 노출하지 않고 UiModel로 매핑한 뒤 전달하는지 확인
+        - UiState는 불변 구조(`struct`, `let`)로 관리되고, `UiState<T>`로 loading / success / failure / empty를 빠짐없이 표현하는지 확인
+        - Failure 상태를 `EmptyView()`처럼 빈 화면으로 방치하지 않았는지 확인
+        - 단발성 이벤트(화면 이동, Toast, Snackbar)는 `UiState`가 아니라 SideEffect로 분리되어 있는지 확인
+        - SideEffect는 `PassthroughSubject` + `.onReceive`로 처리하는지 확인 (`AsyncStream` + `.task`로 받으면 화면 이동 시 `.task`가 취소되면서 스트림이 끝남)
+        - Repository는 `async throws`를 노출하고, 에러 처리를 ViewModel에서 `do`/`catch`로 일관되게 UI 상태로 바꾸는지 확인
+
+        # Swift Concurrency
+        - UI 상태 변경이 메인 액터에서만 일어나는지 확인 (ViewModel은 MainActor 기본 격리 설정을 따름)
+        - `.task`나 구조적 동시성으로 충분한 곳에서 `Task { }`를 남발하지 않는지 확인
+        - 화면이 사라질 때 오래 걸리는 작업이 취소되는지 확인
+        - 토큰 갱신, 캐시처럼 공유되는 가변 자원은 `actor` 등으로 보호되는지 확인
+        - `Sendable` 경고를 억누르지 않고 원인을 해결했는지 확인
+        - 클로저에서 `self`를 캡처할 때 순환 참조(`[weak self]` 필요 여부)를 확인
+
+    - path: "momens-ios/App/**/*.swift"
+      instructions: |
+        - AppCoordinator의 AppState(splash / signIn / onboarding / main) 전환이 한 곳에서 일관되게 관리되는지 확인
+        - DIContainer는 앱 진입점에서 하나만 만들어 내려주고, 전역 싱글톤으로 접근하지 않는지 확인
+        - DIContainer.swift에는 공용 의존성(`lazy var`)만, DIContainer+Feature.swift에는 ViewModel 생성 함수만 두었는지 확인
+        - 의존성이 생성자로 주입되고 protocol(Repository, DataSource) 기반이라 테스트 가능한 구조인지 확인
+
+    - path: "momens-ios/Presentation/**/Navigation/**/*.swift"
+      instructions: |
+        - 화면 이동이 기능별 XxxRoute enum과 XxxNavigationStack의 navigationDestination으로 처리되는지 확인
+        - 새 XxxRoute case가 해당 기능의 navigationDestination에서 빠짐없이 처리되는지 확인
+        - Coordinator를 읽고 ViewModel을 DIContainer로 만드는 곳이 XxxNavigationStack뿐인지 확인
+        - XxxView에는 Coordinator가 아니라 이동 클로저만 넘기는지 확인
+        - 컴포넌트 안에서 `NavigationLink(destination:)`을 직접 쓰지 않는지 확인
+
+    - path: "momens-ios/Presentation/Main/**/*.swift"
+      instructions: |
+        - MainTabCoordinator가 탭마다 타입이 있는 별도 경로(path)를 유지해서 탭을 바꿔도 각 탭의 스택이 유지되는지 확인
+        - 탭 간 이동 시 선택된 탭과 경로가 함께 일관되게 갱신되는지 확인
+
+    - path: "momens-ios/Presentation/**/*.swift"
+      instructions: |
+        - ViewModel이 `@Observable`이고 View에서 `@State`로 보관되는지 확인
+        - UiState와 SideEffect가 State/XxxContract.swift 등에서 명확히 분리되어 있는지 확인
+        - Screen과 Component가 ViewModel을 직접 참조하지 않는지 확인
+        - 화면 상태, 로딩, 에러, 빈 상태가 빠짐없이 표현되는지 확인
+
+    - path: "momens-ios/Data/**/*.swift"
+      instructions: |
+        - Alamofire DTO와 UI 모델이 직접 섞이지 않는지 확인
+        - Repository가 Remote/Local DataSource를 적절히 분리하는지 확인 (Repository / RepositoryImpl, DataSource / DataSourceImpl)
+        - API 정의가 `XxxAPI` enum(EndPoint)으로 모여 있는지 확인
+        - Codable 디코딩 시 옵셔널/기본값 처리가 안전한지 확인
+        - 네트워크 에러, HTTP 에러, 디코딩 에러 처리가 일관적인지 확인
+
+    - path: "momens-ios/Core/Network/**/*.swift"
+      instructions: |
+        - 토큰 갱신(AuthenticationInterceptor)에서 동시에 여러 요청이 401을 받아도 갱신이 중복 실행되지 않는지 확인
+        - 갱신 실패 시 로그아웃 처리 등 후속 흐름이 명확한지 확인
+        - 요청·응답 로그에 토큰이나 개인정보가 출력되지 않는지 확인
+        - base URL, 키 같은 값이 하드코딩되지 않고 xcconfig로 관리되는지 확인
+
+    - path: "momens-ios/Core/Local/**/*.swift"
+      instructions: |
+        - 토큰 같은 민감한 값은 UserDefaults가 아니라 Keychain에 저장하는지 확인
+        - UserDefaults 키가 UserDefaultKey enum 등으로 한 곳에서 관리되는지 확인
+
+    - path: "momens-ios/Core/DesignSystem/**/*.swift"
+      instructions: |
+        - 색상, 타이포그래피, 간격 토큰 이름이 Android(MomensTheme)와 같은 어휘를 쓰는지 확인
+        - 컴포넌트가 크기와 바깥 여백을 호출부에 맡기는지 확인
+        - 컴포넌트마다 `#Preview`가 있고 상태별(기본/비활성/긴 텍스트 등) 확인이 가능한지 확인
+
+    - path: "momens-ios/Presentation/SignIn/**/*.swift"
+      instructions: |
+        - Google 로그인 후 받은 ID Token을 클라이언트에서 신뢰하지 않고 서버 검증 흐름으로 전달하는지 확인
+        - 로그인 실패, 취소, 계정 없음, 네트워크 오류 케이스를 분리해서 처리하는지 확인
+        - 서드파티 로그인을 제공하는 경우 App Store 심사 가이드라인(4.8)에 맞는 로그인 옵션(Sign in with Apple 등)이 있는지 확인
+        - Firebase Auth를 쓰지 않는 구조라면 불필요한 Firebase Auth 의존성이 추가되지 않았는지 확인
+
+    - path: "momens-ios/Presentation/Signal/**/*.swift"
+      instructions: |
+        - Signal 상태가 Needs action, Waiting, Resolved 등으로 명확히 모델링되어 있는지 확인
+        - Signal 액션 처리 후 UI와 로컬 상태가 일관되게 갱신되는지 확인
+        - 푸시 수신 후 상세 데이터 fetch 흐름이 중복 호출되지 않는지 확인
+
+    - path: "momens-ios/Core/FCM/**/*.swift"
+      instructions: |
+        - 푸시 알림 권한 요청 시점과 거부 시 처리가 적절한지 확인
+        - FCM 토큰 갱신 시 서버에 등록하는 흐름이 중복되거나 누락되지 않는지 확인
+        - 백그라운드/포그라운드 수신 처리에서 UI나 화면 상태에 직접 의존하지 않는지 확인
+
+    - path: "**/Package.resolved"
+      instructions: |
+        - 의존성 추가·버전 변경이 작업 범위에 맞는지 확인
+        - 불필요하거나 사용하지 않는 패키지가 추가되지 않았는지 확인
+
+    - path: "**/*.pbxproj"
+      instructions: |
+        - 작업 범위와 무관한 project.pbxproj 변경(빌드 설정, 타깃, 개발 팀, 번들 ID)이 섞이지 않았는지 확인
+        - 새 `.gitkeep`은 앱 타깃 제외 목록(membershipExceptions)에 등록되어 있는지 확인
+        - 최소 지원 버전(iOS 17)이 의도치 않게 바뀌지 않았는지 확인
+
+    - path: "**/*.xcconfig"
+      instructions: |
+        - Debug/Release 별 서버 주소 등 환경 값이 안전하게 분리되어 있는지 확인
+        - 비밀 값(API 키 등)이 `Secrets.xcconfig` 같은 git 제외 파일 밖에 노출되지 않았는지 확인
+
+    - path: "**/Info.plist"
+      instructions: |
+        - 알림, 카메라 등 권한 사용 설명 문구가 기능 요구사항에 맞게 있는지 확인
+        - 불필요한 권한이나 URL Scheme이 노출되지 않았는지 확인
+
+    - path: "**/*.entitlements"
+      instructions: |
+        - Push Notifications, Sign in with Apple 등 capability가 기능 요구사항에 맞는지 확인
+        - 불필요한 권한이 추가되지 않았는지 확인
+
+    - path: ".github/workflows/**"
+      instructions: |
+        - 시크릿이 로그에 출력되지 않는지 확인
+        - 외부 액션이 SHA로 고정되어 있는지 확인
+        - macOS 러너 사용 시 불필요하게 실행 시간이 늘어나지 않는지 확인
+
+  # 리뷰에서 제외할 파일
+  path_filters:
+    - "!**/DerivedData/**"
+    - "!**/build/**"
+    - "!**/.build/**"
+    - "!**/xcuserdata/**"
+    - "!**/*.xcuserstate"
+    - "!**/*.xcassets/**"
+    - "!**/*.png"
+    - "!**/*.jpg"
+    - "!**/*.webp"
+    - "!**/*.json.lottie"
