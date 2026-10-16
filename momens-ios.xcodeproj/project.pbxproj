@@ -10,9 +10,141 @@
 		2444EA493052D2050008B8AE /* momens-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "momens-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F0D72830369953B778EFDB65 /* Exceptions for "momens-ios" folder in "momens-ios" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				App/DI/.gitkeep,
+				Core/Common/Extension/.gitkeep,
+				Core/Common/Logger/.gitkeep,
+				Core/Common/Permission/.gitkeep,
+				Core/Common/State/.gitkeep,
+				Core/Common/Util/.gitkeep,
+				Core/DesignSystem/Component/BottomSheet/.gitkeep,
+				Core/DesignSystem/Component/Button/.gitkeep,
+				Core/DesignSystem/Component/Checkbox/.gitkeep,
+				Core/DesignSystem/Component/Divider/.gitkeep,
+				Core/DesignSystem/Component/Dot/.gitkeep,
+				Core/DesignSystem/Component/EmptyView/.gitkeep,
+				Core/DesignSystem/Component/Header/.gitkeep,
+				Core/DesignSystem/Component/ImportantStatus/.gitkeep,
+				Core/DesignSystem/Component/Input/.gitkeep,
+				Core/DesignSystem/Component/List/.gitkeep,
+				Core/DesignSystem/Component/Logo/.gitkeep,
+				Core/DesignSystem/Component/PageTitle/.gitkeep,
+				Core/DesignSystem/Component/ProgressBar/.gitkeep,
+				Core/DesignSystem/Component/QuestionBox/.gitkeep,
+				Core/DesignSystem/Component/SectionTitle/.gitkeep,
+				Core/DesignSystem/Component/Snackbar/.gitkeep,
+				Core/DesignSystem/Component/Tag/.gitkeep,
+				Core/DesignSystem/Component/TextBox/.gitkeep,
+				Core/DesignSystem/Component/TextField/.gitkeep,
+				Core/DesignSystem/Component/Type/.gitkeep,
+				Core/DesignSystem/Effect/.gitkeep,
+				Core/DesignSystem/Theme/.gitkeep,
+				Core/FCM/.gitkeep,
+				Core/Local/.gitkeep,
+				Core/Navigation/.gitkeep,
+				Core/Network/Google/.gitkeep,
+				Data/Brief/Model/.gitkeep,
+				Data/Brief/Remote/API/.gitkeep,
+				Data/Brief/Remote/DTO/Request/.gitkeep,
+				Data/Brief/Remote/DTO/Response/.gitkeep,
+				Data/Brief/Remote/DataSource/.gitkeep,
+				Data/Brief/Remote/DataSourceImpl/.gitkeep,
+				Data/Brief/Repository/.gitkeep,
+				Data/Brief/RepositoryImpl/.gitkeep,
+				Data/Project/Task/Model/.gitkeep,
+				Data/Project/Task/Remote/API/.gitkeep,
+				Data/Project/Task/Remote/DTO/Request/.gitkeep,
+				Data/Project/Task/Remote/DTO/Response/.gitkeep,
+				Data/Project/Task/Remote/DataSource/.gitkeep,
+				Data/Project/Task/Remote/DataSourceImpl/.gitkeep,
+				Data/Project/Task/Repository/.gitkeep,
+				Data/Project/Task/RepositoryImpl/.gitkeep,
+				Data/Project/TaskDetail/Model/.gitkeep,
+				Data/Project/TaskDetail/Remote/API/.gitkeep,
+				Data/Project/TaskDetail/Remote/DTO/Request/.gitkeep,
+				Data/Project/TaskDetail/Remote/DTO/Response/.gitkeep,
+				Data/Project/TaskDetail/Remote/DataSource/.gitkeep,
+				Data/Project/TaskDetail/Remote/DataSourceImpl/.gitkeep,
+				Data/Project/TaskDetail/Repository/.gitkeep,
+				Data/Project/TaskDetail/RepositoryImpl/.gitkeep,
+				Data/Project/TaskEdit/Model/.gitkeep,
+				Data/Project/TaskEdit/Remote/API/.gitkeep,
+				Data/Project/TaskEdit/Remote/DTO/Request/.gitkeep,
+				Data/Project/TaskEdit/Remote/DTO/Response/.gitkeep,
+				Data/Project/TaskEdit/Remote/DataSource/.gitkeep,
+				Data/Project/TaskEdit/Remote/DataSourceImpl/.gitkeep,
+				Data/Project/TaskEdit/Repository/.gitkeep,
+				Data/Project/TaskEdit/RepositoryImpl/.gitkeep,
+				Data/PushDevice/Model/.gitkeep,
+				Data/PushDevice/Remote/API/.gitkeep,
+				Data/PushDevice/Remote/DTO/Request/.gitkeep,
+				Data/PushDevice/Remote/DTO/Response/.gitkeep,
+				Data/PushDevice/Remote/DataSource/.gitkeep,
+				Data/PushDevice/Remote/DataSourceImpl/.gitkeep,
+				Data/PushDevice/Repository/.gitkeep,
+				Data/PushDevice/RepositoryImpl/.gitkeep,
+				Data/SignIn/Model/.gitkeep,
+				Data/SignIn/Remote/API/.gitkeep,
+				Data/SignIn/Remote/DTO/Request/.gitkeep,
+				Data/SignIn/Remote/DTO/Response/.gitkeep,
+				Data/SignIn/Remote/DataSource/.gitkeep,
+				Data/SignIn/Remote/DataSourceImpl/.gitkeep,
+				Data/SignIn/Repository/.gitkeep,
+				Data/SignIn/RepositoryImpl/.gitkeep,
+				Data/Signal/Model/.gitkeep,
+				Data/Signal/Remote/API/.gitkeep,
+				Data/Signal/Remote/DTO/Request/.gitkeep,
+				Data/Signal/Remote/DTO/Response/.gitkeep,
+				Data/Signal/Remote/DataSource/.gitkeep,
+				Data/Signal/Remote/DataSourceImpl/.gitkeep,
+				Data/Signal/Repository/.gitkeep,
+				Data/Signal/RepositoryImpl/.gitkeep,
+				Presentation/Brief/Component/.gitkeep,
+				Presentation/Brief/Model/.gitkeep,
+				Presentation/Brief/Navigation/.gitkeep,
+				Presentation/Brief/State/.gitkeep,
+				Presentation/Loading/Component/.gitkeep,
+				Presentation/Loading/Model/.gitkeep,
+				Presentation/Loading/State/.gitkeep,
+				Presentation/Main/Component/.gitkeep,
+				Presentation/Onboarding/Component/.gitkeep,
+				Presentation/Onboarding/Model/.gitkeep,
+				Presentation/Onboarding/State/.gitkeep,
+				Presentation/Project/Model/.gitkeep,
+				Presentation/Project/Navigation/.gitkeep,
+				Presentation/Project/Task/Component/.gitkeep,
+				Presentation/Project/Task/Model/.gitkeep,
+				Presentation/Project/Task/State/.gitkeep,
+				Presentation/Project/TaskDetail/Component/.gitkeep,
+				Presentation/Project/TaskDetail/Model/.gitkeep,
+				Presentation/Project/TaskDetail/State/.gitkeep,
+				Presentation/Project/TaskEdit/Component/.gitkeep,
+				Presentation/Project/TaskEdit/Model/.gitkeep,
+				Presentation/Project/TaskEdit/State/.gitkeep,
+				Presentation/SignIn/Component/.gitkeep,
+				Presentation/SignIn/Model/.gitkeep,
+				Presentation/SignIn/State/.gitkeep,
+				Presentation/Signal/Component/.gitkeep,
+				Presentation/Signal/Model/.gitkeep,
+				Presentation/Signal/Navigation/.gitkeep,
+				Presentation/Signal/State/.gitkeep,
+				Presentation/Splash/Component/.gitkeep,
+				Presentation/Splash/Model/.gitkeep,
+				Presentation/Splash/State/.gitkeep,
+			);
+			target = 2444EA483052D2050008B8AE /* momens-ios */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2444EA4B3052D2050008B8AE /* momens-ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				F0D72830369953B778EFDB65 /* Exceptions for "momens-ios" folder in "momens-ios" target */,
+			);
 			path = "momens-ios";
 			sourceTree = "<group>";
 		};
@@ -251,13 +383,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N442D9T92N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Momens;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -266,6 +401,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.momens.momens-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -282,13 +421,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N442D9T92N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Momens;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -297,6 +439,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.momens.momens-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
