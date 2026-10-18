@@ -10,6 +10,17 @@
 		2444EA493052D2050008B8AE /* momens-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "momens-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000011 /* Alamofire */; };
+		A10000000000000000000002 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000012 /* Kingfisher */; };
+		A10000000000000000000003 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000013 /* Lottie */; };
+		A10000000000000000000004 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000014 /* FirebaseMessaging */; };
+		A10000000000000000000005 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000015 /* FirebaseInstallations */; };
+		A10000000000000000000006 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000016 /* GoogleSignIn */; };
+		A10000000000000000000007 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000017 /* GoogleSignInSwift */; };
+		A10000000000000000000008 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000018 /* GRDB */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		F0D72830369953B778EFDB65 /* Exceptions for "momens-ios" folder in "momens-ios" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -155,6 +166,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10000000000000000000001 /* Alamofire in Frameworks */,
+				A10000000000000000000002 /* Kingfisher in Frameworks */,
+				A10000000000000000000003 /* Lottie in Frameworks */,
+				A10000000000000000000004 /* FirebaseMessaging in Frameworks */,
+				A10000000000000000000005 /* FirebaseInstallations in Frameworks */,
+				A10000000000000000000006 /* GoogleSignIn in Frameworks */,
+				A10000000000000000000007 /* GoogleSignInSwift in Frameworks */,
+				A10000000000000000000008 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +216,14 @@
 			);
 			name = "momens-ios";
 			packageProductDependencies = (
+				A10000000000000000000011 /* Alamofire */,
+				A10000000000000000000012 /* Kingfisher */,
+				A10000000000000000000013 /* Lottie */,
+				A10000000000000000000014 /* FirebaseMessaging */,
+				A10000000000000000000015 /* FirebaseInstallations */,
+				A10000000000000000000016 /* GoogleSignIn */,
+				A10000000000000000000017 /* GoogleSignInSwift */,
+				A10000000000000000000018 /* GRDB */,
 			);
 			productName = "momens-ios";
 			productReference = 2444EA493052D2050008B8AE /* momens-ios.app */;
@@ -228,6 +255,14 @@
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2444EA4A3052D2050008B8AE /* Products */;
+			packageReferences = (
+				A10000000000000000000021 /* Alamofire */,
+				A10000000000000000000022 /* Kingfisher */,
+				A10000000000000000000023 /* lottie-spm */,
+				A10000000000000000000024 /* Firebase */,
+				A10000000000000000000025 /* GoogleSignIn-iOS */,
+				A10000000000000000000026 /* GRDB.swift */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -245,6 +280,50 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A10000000000000000000021 /* Alamofire */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 5.12.2; };
+		};
+		A10000000000000000000022 /* Kingfisher */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 8.13.0; };
+		};
+		A10000000000000000000023 /* lottie-spm */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 4.6.1; };
+		};
+		A10000000000000000000024 /* Firebase */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 12.19.2; };
+		};
+		A10000000000000000000025 /* GoogleSignIn-iOS */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 10.0.0; };
+		};
+		A10000000000000000000026 /* GRDB.swift */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 7.11.1; };
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A10000000000000000000011 /* Alamofire */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000021 /* Alamofire */; productName = Alamofire; };
+		A10000000000000000000012 /* Kingfisher */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000022 /* Kingfisher */; productName = Kingfisher; };
+		A10000000000000000000013 /* Lottie */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000023 /* lottie-spm */; productName = Lottie; };
+		A10000000000000000000014 /* FirebaseMessaging */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000024 /* Firebase */; productName = FirebaseMessaging; };
+		A10000000000000000000015 /* FirebaseInstallations */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000024 /* Firebase */; productName = FirebaseInstallations; };
+		A10000000000000000000016 /* GoogleSignIn */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000025 /* GoogleSignIn-iOS */; productName = GoogleSignIn; };
+		A10000000000000000000017 /* GoogleSignInSwift */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000025 /* GoogleSignIn-iOS */; productName = GoogleSignInSwift; };
+		A10000000000000000000018 /* GRDB */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000026 /* GRDB.swift */; productName = GRDB; };
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2444EA453052D2050008B8AE /* Sources */ = {
