@@ -1,0 +1,93 @@
+name: iOS CI
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-build-test:
+    name: SwiftLint, Build, and XCTest
+    runs-on: macos-26
+    timeout-minutes: 30
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.5.app/Contents/Developer
+      SCHEME: momens-ios
+      PROJECT: momens-ios.xcodeproj
+      DESTINATION: platform=iOS Simulator,name=iPhone 17 Pro,OS=latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode and show environment
+        run: |
+          sudo xcode-select --switch "$DEVELOPER_DIR"
+          xcodebuild -version
+          xcrun simctl list devices available
+
+      - name: Restore Swift Package Manager cache
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData/SourcePackages
+          key: ${{ runner.os }}-xcode-26.5-spm-${{ hashFiles('momens-ios.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-xcode-26.5-spm-
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: Run SwiftLint
+        run: swiftlint lint --strict --config .swiftlint.yml
+
+      - name: Resolve Swift packages
+        run: |
+          xcodebuild \
+            -resolvePackageDependencies \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -clonedSourcePackagesDirPath "$HOME/Library/Developer/Xcode/DerivedData/SourcePackages"
+
+      - name: Build for testing
+        run: |
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration Debug \
+            -destination "$DESTINATION" \
+            -clonedSourcePackagesDirPath "$HOME/Library/Developer/Xcode/DerivedData/SourcePackages" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            CODE_SIGNING_ALLOWED=NO \
+            build-for-testing
+
+      - name: Run XCTest
+        run: |
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -configuration Debug \
+            -destination "$DESTINATION" \
+            -clonedSourcePackagesDirPath "$HOME/Library/Developer/Xcode/DerivedData/SourcePackages" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            -resultBundlePath "$RUNNER_TEMP/TestResults.xcresult" \
+            CODE_SIGNING_ALLOWED=NO \
+            test-without-building
+
+      - name: Upload XCTest result bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xctest-results
+          path: ${{ runner.temp }}/TestResults.xcresult
+          if-no-files-found: ignore
