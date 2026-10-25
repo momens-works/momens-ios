@@ -25,7 +25,6 @@
 		F0D72830369953B778EFDB65 /* Exceptions for "momens-ios" folder in "momens-ios" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				App/DI/.gitkeep,
 				Core/Common/Extension/.gitkeep,
 				Core/Common/Logger/.gitkeep,
 				Core/Common/Permission/.gitkeep,
@@ -55,7 +54,6 @@
 				Core/DesignSystem/Theme/.gitkeep,
 				Core/FCM/.gitkeep,
 				Core/Local/.gitkeep,
-				Core/Navigation/.gitkeep,
 				Core/Network/Google/.gitkeep,
 				Data/Brief/Model/.gitkeep,
 				Data/Brief/Remote/API/.gitkeep,
@@ -115,7 +113,6 @@
 				Data/Signal/RepositoryImpl/.gitkeep,
 				Presentation/Brief/Component/.gitkeep,
 				Presentation/Brief/Model/.gitkeep,
-				Presentation/Brief/Navigation/.gitkeep,
 				Presentation/Brief/State/.gitkeep,
 				Presentation/Loading/Component/.gitkeep,
 				Presentation/Loading/Model/.gitkeep,
@@ -125,7 +122,6 @@
 				Presentation/Onboarding/Model/.gitkeep,
 				Presentation/Onboarding/State/.gitkeep,
 				Presentation/Project/Model/.gitkeep,
-				Presentation/Project/Navigation/.gitkeep,
 				Presentation/Project/Task/Component/.gitkeep,
 				Presentation/Project/Task/Model/.gitkeep,
 				Presentation/Project/Task/State/.gitkeep,
@@ -140,7 +136,6 @@
 				Presentation/SignIn/State/.gitkeep,
 				Presentation/Signal/Component/.gitkeep,
 				Presentation/Signal/Model/.gitkeep,
-				Presentation/Signal/Navigation/.gitkeep,
 				Presentation/Signal/State/.gitkeep,
 				Presentation/Splash/Component/.gitkeep,
 				Presentation/Splash/Model/.gitkeep,
