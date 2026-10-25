@@ -8,10 +8,14 @@
 import SwiftUI
 
 @main
-struct momens_iosApp: App {
+struct MomensIOSApp: App {
+    @State private var appCoordinator = AppCoordinator()
+    @State private var container = DIContainer()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppRootView(container: container)
+                .environment(appCoordinator)
         }
     }
 }
