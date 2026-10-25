@@ -3,7 +3,6 @@ import Observation
 @Observable
 final class MainTabCoordinator {
     var selectedTab: MainTab = .signal
-    var signalPath: [SignalRoute] = []
     var briefPath: [BriefRoute] = []
     var projectPath: [ProjectRoute] = []
 
