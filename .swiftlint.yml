@@ -1,31 +1,24 @@
 included:
   - momens-ios
+  - momens-iosTests
 
 excluded:
   - momens-ios.xcodeproj
-  - DerivedData
   - .build
+  - DerivedData
+  - Pods
+  - Carthage
 
 line_length:
   warning: 120
   error: 160
-  ignores_urls: true
 
 file_length:
   warning: 500
-  error: 1000
+  error: 800
 
 type_body_length:
   warning: 300
   error: 500
 
-function_body_length:
-  warning: 60
-  error: 100
-
-identifier_name:
-  min_length: 2
-  excluded:
-    - id
-    - x
-    - y
+reporter: "xcode"

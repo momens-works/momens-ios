@@ -8,6 +8,9 @@
 
 /* Begin PBXFileReference section */
 		2444EA493052D2050008B8AE /* momens-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "momens-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000001 /* momens-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "momens-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000002 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		B10000000000000000000004 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXBuildFile section */
@@ -19,6 +22,8 @@
 		A10000000000000000000006 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000016 /* GoogleSignIn */; };
 		A10000000000000000000007 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000017 /* GoogleSignInSwift */; };
 		A10000000000000000000008 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000018 /* GRDB */; };
+		B10000000000000000000005 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* AppCoordinatorTests.swift */; };
+		B10000000000000000000006 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -179,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				2444EA4B3052D2050008B8AE /* momens-ios */,
+				B10000000000000000000007 /* momens-iosTests */,
 				2444EA4A3052D2050008B8AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -187,8 +193,17 @@
 			isa = PBXGroup;
 			children = (
 				2444EA493052D2050008B8AE /* momens-ios.app */,
+				B10000000000000000000001 /* momens-iosTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B10000000000000000000007 /* momens-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				B10000000000000000000002 /* AppCoordinatorTests.swift */,
+			);
+			path = "momens-iosTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +239,34 @@
 			productReference = 2444EA493052D2050008B8AE /* momens-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B10000000000000000000003 /* momens-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B10000000000000000000008 /* Build configuration list for PBXNativeTarget "momens-iosTests" */;
+			buildPhases = (
+				B10000000000000000000009 /* Sources */,
+				B10000000000000000000010 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B10000000000000000000011 /* PBXTargetDependency */,
+			);
+			name = "momens-iosTests";
+			productName = "momens-iosTests";
+			productReference = B10000000000000000000001 /* momens-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		B10000000000000000000012 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2444EA413052D2050008B8AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2444EA483052D2050008B8AE;
+			remoteInfo = "momens-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXProject section */
 		2444EA413052D2050008B8AE /* Project object */ = {
@@ -236,6 +278,10 @@
 				TargetAttributes = {
 					2444EA483052D2050008B8AE = {
 						CreatedOnToolsVersion = 26.6;
+					};
+					B10000000000000000000003 = {
+						CreatedOnToolsVersion = 26.6;
+						TestTargetID = 2444EA483052D2050008B8AE;
 					};
 				};
 			};
@@ -262,6 +308,7 @@
 			projectRoot = "";
 			targets = (
 				2444EA483052D2050008B8AE /* momens-ios */,
+				B10000000000000000000003 /* momens-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +322,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B10000000000000000000010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000006 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin XCRemoteSwiftPackageReference section */
 		A10000000000000000000021 /* Alamofire */ = {
@@ -328,7 +386,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B10000000000000000000009 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000005 /* AppCoordinatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B10000000000000000000011 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2444EA483052D2050008B8AE /* momens-ios */;
+			targetProxy = B10000000000000000000012 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2444EA523052D2060008B8AE /* Debug */ = {
@@ -526,6 +600,36 @@
 			};
 			name = Release;
 		};
+		B10000000000000000000013 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.momens.momens-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/momens-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/momens-ios";
+			};
+			name = Debug;
+		};
+		B10000000000000000000014 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.momens.momens-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/momens-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/momens-ios";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -543,6 +647,15 @@
 			buildConfigurations = (
 				2444EA553052D2060008B8AE /* Debug */,
 				2444EA563052D2060008B8AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B10000000000000000000008 /* Build configuration list for PBXNativeTarget "momens-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B10000000000000000000013 /* Debug */,
+				B10000000000000000000014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
