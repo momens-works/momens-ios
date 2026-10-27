@@ -3,20 +3,20 @@ import SwiftUI
 enum MomensEffect {
     static let uiShadow = MomensShadow(
         color: .black.opacity(0.04),
-        x: 0,
-        y: 2,
+        offsetX: 0,
+        offsetY: 2,
         radius: 12
     )
     static let floatingShadow = MomensShadow(
         color: .black.opacity(0.25),
-        x: -1,
-        y: 4,
+        offsetX: -1,
+        offsetY: 4,
         radius: 4
     )
     static let bottomSheetShadow = MomensShadow(
         color: .black.opacity(0.25),
-        x: 0,
-        y: -6,
+        offsetX: 0,
+        offsetY: -6,
         radius: 16
     )
     static let navigationBlurRadius: CGFloat = 4
@@ -25,8 +25,8 @@ enum MomensEffect {
 
 struct MomensShadow {
     let color: Color
-    let x: CGFloat
-    let y: CGFloat
+    let offsetX: CGFloat
+    let offsetY: CGFloat
     let radius: CGFloat
 }
 
@@ -35,8 +35,8 @@ extension View {
         self.shadow(
             color: shadow.color,
             radius: shadow.radius,
-            x: shadow.x,
-            y: shadow.y
+            x: shadow.offsetX,
+            y: shadow.offsetY
         )
     }
 }
