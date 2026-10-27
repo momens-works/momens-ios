@@ -1,6 +1,7 @@
 import CoreText
 import Foundation
 import SwiftUI
+import UIKit
 
 enum MomensTypography {
     case titleBold24
@@ -22,7 +23,7 @@ enum MomensTypography {
             guard let fontURL = Bundle.main.url(
                 forResource: fontName,
                 withExtension: "otf",
-                subdirectory: "Fonts"
+                subdirectory: nil
             ) else {
                 return
             }
@@ -36,7 +37,7 @@ enum MomensTypography {
     }
 
     var lineSpacing: CGFloat {
-        lineHeight - fontSize
+        lineHeight - (UIFont(name: fontName, size: fontSize)?.lineHeight ?? fontSize)
     }
 
     var tracking: CGFloat {
