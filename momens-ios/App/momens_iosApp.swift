@@ -12,6 +12,10 @@ struct MomensIOSApp: App {
     @State private var appCoordinator = AppCoordinator()
     @State private var container = DIContainer()
 
+    init() {
+        MomensTypography.registerFonts()
+    }
+
     var body: some Scene {
         WindowGroup {
             AppRootView(container: container)
