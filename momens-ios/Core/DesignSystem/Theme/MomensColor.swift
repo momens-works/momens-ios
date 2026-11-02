@@ -9,7 +9,7 @@ enum MomensColor {
     // Point
     static let pointRed = Color(hex: 0xFE8E8E)
     static let pointPurple = Color(hex: 0x7E70FF)
-    static let pointYellow = Color(hex: 0xFFB554)
+    static let pointYellow = Color(hex: 0xFFB854)
     static let pointMint = Color(hex: 0x70D4CC)
 
     // B&W
@@ -23,7 +23,7 @@ enum MomensColor {
 
     // Grayscale
     static let gray100 = Color(hex: 0xEDF0F4)
-    static let gray200 = Color(hex: 0xD5DADD)
+    static let gray200 = Color(hex: 0xD5DADF)
     static let gray300 = Color(hex: 0xBCC4CC)
     static let gray400 = Color(hex: 0x959CA3)
     static let gray500 = Color(hex: 0x788087)
