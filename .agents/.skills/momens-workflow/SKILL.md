@@ -144,6 +144,19 @@ When the user asks to create a PR:
 6. Mention only validation that actually ran.
 7. Comment on the Momens task with the PR URL.
 
+## Merge Flow
+
+When the user asks to merge a PR into `develop`:
+
+1. Use a merge commit (`gh pr merge <n> --merge`). Do not squash or rebase.
+2. Use the merge commit subject `[MERGE] MOM-0000 -> develop`.
+3. Keep the remote branch after merging unless the user asks to delete it.
+4. Merge dependent PRs in order (for example, folder structure before docs that reference it).
+
+```bash
+gh pr merge <n> --repo momens-works/momens-ios --merge --subject "[MERGE] MOM-0000 -> develop"
+```
+
 ## GitHub Migration Flow
 
 Use this only for old GitHub issue/PR migration.
