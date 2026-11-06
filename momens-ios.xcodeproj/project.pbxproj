@@ -49,7 +49,6 @@
 				Core/DesignSystem/Component/PageTitle/.gitkeep,
 				Core/DesignSystem/Component/ProgressBar/.gitkeep,
 				Core/DesignSystem/Component/QuestionBox/.gitkeep,
-				Core/DesignSystem/Component/SectionTitle/.gitkeep,
 				Core/DesignSystem/Component/Snackbar/.gitkeep,
 				Core/DesignSystem/Component/Tag/.gitkeep,
 				Core/DesignSystem/Component/TextBox/.gitkeep,
