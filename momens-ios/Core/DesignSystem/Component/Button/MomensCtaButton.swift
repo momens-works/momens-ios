@@ -30,29 +30,27 @@ struct MomensCtaButton<Content: View>: View {
     }
 }
 
-private func previewAction() {}
-
 #Preview("MomensCtaButton - Variants") {
     VStack(spacing: 10) {
-        MomensCtaButton(action: previewAction) {
+        MomensCtaButton(action: {}, content: {
             Text("text")
                 .foregroundStyle(MomensColor.white)
                 .momensFont(.bodyB16)
-        }
+        })
 
-        MomensCtaButton(action: previewAction, isEnabled: false) {
+        MomensCtaButton(action: {}, isEnabled: false, content: {
             Text("text")
                 .foregroundStyle(MomensColor.white)
                 .momensFont(.bodyB16)
-        }
+        })
 
-        MomensCtaButton(action: previewAction, type: .cancel) {
+        MomensCtaButton(action: {}, type: .cancel, content: {
             Text("text")
                 .foregroundStyle(MomensColor.gray700)
                 .momensFont(.bodyB16)
-        }
+        })
 
-        MomensCtaButton(action: previewAction, type: .login) {
+        MomensCtaButton(action: {}, type: .login, content: {
             HStack(spacing: 8) {
                 Image("ic_google")
                     .resizable()
@@ -61,7 +59,7 @@ private func previewAction() {}
                     .foregroundStyle(MomensColor.gray700)
                     .momensFont(.bodyB16)
             }
-        }
+        })
     }
     .padding(16)
     .frame(width: 352)
