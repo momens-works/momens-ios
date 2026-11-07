@@ -41,7 +41,6 @@
 				Core/DesignSystem/Component/Divider/.gitkeep,
 				Core/DesignSystem/Component/Dot/.gitkeep,
 				Core/DesignSystem/Component/EmptyView/.gitkeep,
-				Core/DesignSystem/Component/Header/.gitkeep,
 				Core/DesignSystem/Component/ImportantStatus/.gitkeep,
 				Core/DesignSystem/Component/Input/.gitkeep,
 				Core/DesignSystem/Component/List/.gitkeep,
