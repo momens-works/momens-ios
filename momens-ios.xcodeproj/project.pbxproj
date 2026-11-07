@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXFileReference section */
+		2444EA493052D2050008B8AE /* momens-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "momens-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000001 /* momens-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "momens-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10000000000000000000002 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		B10000000000000000000004 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
 /* Begin PBXBuildFile section */
 		A10000000000000000000001 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000011 /* Alamofire */; };
 		A10000000000000000000002 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A10000000000000000000012 /* Kingfisher */; };
@@ -18,23 +25,6 @@
 		B10000000000000000000005 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10000000000000000000002 /* AppCoordinatorTests.swift */; };
 		B10000000000000000000006 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10000000000000000000004 /* XCTest.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B10000000000000000000012 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2444EA413052D2050008B8AE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2444EA483052D2050008B8AE;
-			remoteInfo = "momens-ios";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		2444EA493052D2050008B8AE /* momens-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "momens-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B10000000000000000000001 /* momens-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "momens-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B10000000000000000000002 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
-		B10000000000000000000004 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
-/* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		F0D72830369953B778EFDB65 /* Exceptions for "momens-ios" folder in "momens-ios" target */ = {
@@ -68,60 +58,60 @@
 				Core/Network/Google/.gitkeep,
 				Data/Brief/Model/.gitkeep,
 				Data/Brief/Remote/API/.gitkeep,
-				Data/Brief/Remote/DataSource/.gitkeep,
-				Data/Brief/Remote/DataSourceImpl/.gitkeep,
 				Data/Brief/Remote/DTO/Request/.gitkeep,
 				Data/Brief/Remote/DTO/Response/.gitkeep,
+				Data/Brief/Remote/DataSource/.gitkeep,
+				Data/Brief/Remote/DataSourceImpl/.gitkeep,
 				Data/Brief/Repository/.gitkeep,
 				Data/Brief/RepositoryImpl/.gitkeep,
 				Data/Project/Task/Model/.gitkeep,
 				Data/Project/Task/Remote/API/.gitkeep,
-				Data/Project/Task/Remote/DataSource/.gitkeep,
-				Data/Project/Task/Remote/DataSourceImpl/.gitkeep,
 				Data/Project/Task/Remote/DTO/Request/.gitkeep,
 				Data/Project/Task/Remote/DTO/Response/.gitkeep,
+				Data/Project/Task/Remote/DataSource/.gitkeep,
+				Data/Project/Task/Remote/DataSourceImpl/.gitkeep,
 				Data/Project/Task/Repository/.gitkeep,
 				Data/Project/Task/RepositoryImpl/.gitkeep,
 				Data/Project/TaskDetail/Model/.gitkeep,
 				Data/Project/TaskDetail/Remote/API/.gitkeep,
-				Data/Project/TaskDetail/Remote/DataSource/.gitkeep,
-				Data/Project/TaskDetail/Remote/DataSourceImpl/.gitkeep,
 				Data/Project/TaskDetail/Remote/DTO/Request/.gitkeep,
 				Data/Project/TaskDetail/Remote/DTO/Response/.gitkeep,
+				Data/Project/TaskDetail/Remote/DataSource/.gitkeep,
+				Data/Project/TaskDetail/Remote/DataSourceImpl/.gitkeep,
 				Data/Project/TaskDetail/Repository/.gitkeep,
 				Data/Project/TaskDetail/RepositoryImpl/.gitkeep,
 				Data/Project/TaskEdit/Model/.gitkeep,
 				Data/Project/TaskEdit/Remote/API/.gitkeep,
-				Data/Project/TaskEdit/Remote/DataSource/.gitkeep,
-				Data/Project/TaskEdit/Remote/DataSourceImpl/.gitkeep,
 				Data/Project/TaskEdit/Remote/DTO/Request/.gitkeep,
 				Data/Project/TaskEdit/Remote/DTO/Response/.gitkeep,
+				Data/Project/TaskEdit/Remote/DataSource/.gitkeep,
+				Data/Project/TaskEdit/Remote/DataSourceImpl/.gitkeep,
 				Data/Project/TaskEdit/Repository/.gitkeep,
 				Data/Project/TaskEdit/RepositoryImpl/.gitkeep,
 				Data/PushDevice/Model/.gitkeep,
 				Data/PushDevice/Remote/API/.gitkeep,
-				Data/PushDevice/Remote/DataSource/.gitkeep,
-				Data/PushDevice/Remote/DataSourceImpl/.gitkeep,
 				Data/PushDevice/Remote/DTO/Request/.gitkeep,
 				Data/PushDevice/Remote/DTO/Response/.gitkeep,
+				Data/PushDevice/Remote/DataSource/.gitkeep,
+				Data/PushDevice/Remote/DataSourceImpl/.gitkeep,
 				Data/PushDevice/Repository/.gitkeep,
 				Data/PushDevice/RepositoryImpl/.gitkeep,
-				Data/Signal/Model/.gitkeep,
-				Data/Signal/Remote/API/.gitkeep,
-				Data/Signal/Remote/DataSource/.gitkeep,
-				Data/Signal/Remote/DataSourceImpl/.gitkeep,
-				Data/Signal/Remote/DTO/Request/.gitkeep,
-				Data/Signal/Remote/DTO/Response/.gitkeep,
-				Data/Signal/Repository/.gitkeep,
-				Data/Signal/RepositoryImpl/.gitkeep,
 				Data/SignIn/Model/.gitkeep,
 				Data/SignIn/Remote/API/.gitkeep,
-				Data/SignIn/Remote/DataSource/.gitkeep,
-				Data/SignIn/Remote/DataSourceImpl/.gitkeep,
 				Data/SignIn/Remote/DTO/Request/.gitkeep,
 				Data/SignIn/Remote/DTO/Response/.gitkeep,
+				Data/SignIn/Remote/DataSource/.gitkeep,
+				Data/SignIn/Remote/DataSourceImpl/.gitkeep,
 				Data/SignIn/Repository/.gitkeep,
 				Data/SignIn/RepositoryImpl/.gitkeep,
+				Data/Signal/Model/.gitkeep,
+				Data/Signal/Remote/API/.gitkeep,
+				Data/Signal/Remote/DTO/Request/.gitkeep,
+				Data/Signal/Remote/DTO/Response/.gitkeep,
+				Data/Signal/Remote/DataSource/.gitkeep,
+				Data/Signal/Remote/DataSourceImpl/.gitkeep,
+				Data/Signal/Repository/.gitkeep,
+				Data/Signal/RepositoryImpl/.gitkeep,
 				Presentation/Brief/Component/.gitkeep,
 				Presentation/Brief/Model/.gitkeep,
 				Presentation/Brief/State/.gitkeep,
@@ -142,12 +132,12 @@
 				Presentation/Project/TaskEdit/Component/.gitkeep,
 				Presentation/Project/TaskEdit/Model/.gitkeep,
 				Presentation/Project/TaskEdit/State/.gitkeep,
-				Presentation/Signal/Component/.gitkeep,
-				Presentation/Signal/Model/.gitkeep,
-				Presentation/Signal/State/.gitkeep,
 				Presentation/SignIn/Component/.gitkeep,
 				Presentation/SignIn/Model/.gitkeep,
 				Presentation/SignIn/State/.gitkeep,
+				Presentation/Signal/Component/.gitkeep,
+				Presentation/Signal/Model/.gitkeep,
+				Presentation/Signal/State/.gitkeep,
 				Presentation/Splash/Component/.gitkeep,
 				Presentation/Splash/Model/.gitkeep,
 				Presentation/Splash/State/.gitkeep,
@@ -184,14 +174,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B10000000000000000000010 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B10000000000000000000006 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -201,7 +183,6 @@
 				2444EA4B3052D2050008B8AE /* momens-ios */,
 				B10000000000000000000007 /* momens-iosTests */,
 				2444EA4A3052D2050008B8AE /* Products */,
-				24BAEFC2309F85D800BD85C4 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,14 +193,6 @@
 				B10000000000000000000001 /* momens-iosTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		24BAEFC2309F85D800BD85C4 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				B10000000000000000000004 /* XCTest.framework */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B10000000000000000000007 /* momens-iosTests */ = {
@@ -282,6 +255,16 @@
 		};
 /* End PBXNativeTarget section */
 
+/* Begin PBXContainerItemProxy section */
+		B10000000000000000000012 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2444EA413052D2050008B8AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2444EA483052D2050008B8AE;
+			remoteInfo = "momens-ios";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXProject section */
 		2444EA413052D2050008B8AE /* Project object */ = {
 			isa = PBXProject;
@@ -308,16 +291,16 @@
 			);
 			mainGroup = 2444EA403052D2050008B8AE;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				A10000000000000000000021 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				A10000000000000000000022 /* XCRemoteSwiftPackageReference "Kingfisher" */,
-				A10000000000000000000023 /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				A10000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				A10000000000000000000025 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
-				A10000000000000000000026 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2444EA4A3052D2050008B8AE /* Products */;
+			packageReferences = (
+				A10000000000000000000021 /* Alamofire */,
+				A10000000000000000000022 /* Kingfisher */,
+				A10000000000000000000023 /* lottie-spm */,
+				A10000000000000000000024 /* Firebase */,
+				A10000000000000000000025 /* GoogleSignIn-iOS */,
+				A10000000000000000000026 /* GRDB.swift */,
+			);
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -336,6 +319,61 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B10000000000000000000010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000006 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A10000000000000000000021 /* Alamofire */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 5.12.2; };
+		};
+		A10000000000000000000022 /* Kingfisher */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 8.13.0; };
+		};
+		A10000000000000000000023 /* lottie-spm */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 4.6.1; };
+		};
+		A10000000000000000000024 /* Firebase */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 12.19.2; };
+		};
+		A10000000000000000000025 /* GoogleSignIn-iOS */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 10.0.0; };
+		};
+		A10000000000000000000026 /* GRDB.swift */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = { kind = upToNextMajorVersion; minimumVersion = 7.11.1; };
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A10000000000000000000011 /* Alamofire */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000021 /* Alamofire */; productName = Alamofire; };
+		A10000000000000000000012 /* Kingfisher */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000022 /* Kingfisher */; productName = Kingfisher; };
+		A10000000000000000000013 /* Lottie */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000023 /* lottie-spm */; productName = Lottie; };
+		A10000000000000000000014 /* FirebaseMessaging */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000024 /* Firebase */; productName = FirebaseMessaging; };
+		A10000000000000000000015 /* FirebaseInstallations */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000024 /* Firebase */; productName = FirebaseInstallations; };
+		A10000000000000000000016 /* GoogleSignIn */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000025 /* GoogleSignIn-iOS */; productName = GoogleSignIn; };
+		A10000000000000000000017 /* GoogleSignInSwift */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000025 /* GoogleSignIn-iOS */; productName = GoogleSignInSwift; };
+		A10000000000000000000018 /* GRDB */ = {isa = XCSwiftPackageProductDependency; package = A10000000000000000000026 /* GRDB.swift */; productName = GRDB; };
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2444EA453052D2050008B8AE /* Sources */ = {
@@ -610,100 +648,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A10000000000000000000021 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.12.2;
-			};
-		};
-		A10000000000000000000022 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.13.0;
-			};
-		};
-		A10000000000000000000023 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.6.1;
-			};
-		};
-		A10000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.19.2;
-			};
-		};
-		A10000000000000000000025 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/google/GoogleSignIn-iOS.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.0.0;
-			};
-		};
-		A10000000000000000000026 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/groue/GRDB.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A10000000000000000000011 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000021 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		A10000000000000000000012 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000022 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		A10000000000000000000013 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000023 /* XCRemoteSwiftPackageReference "lottie-spm" */;
-			productName = Lottie;
-		};
-		A10000000000000000000014 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
-		};
-		A10000000000000000000015 /* FirebaseInstallations */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseInstallations;
-		};
-		A10000000000000000000016 /* GoogleSignIn */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000025 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignIn;
-		};
-		A10000000000000000000017 /* GoogleSignInSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000025 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
-			productName = GoogleSignInSwift;
-		};
-		A10000000000000000000018 /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000026 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDB;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2444EA413052D2050008B8AE /* Project object */;
 }
