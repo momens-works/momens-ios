@@ -1,0 +1,100 @@
+import SwiftUI
+
+struct MomensToast: View {
+    let type: MomensToastType
+    let title: String
+
+    private var iconName: String {
+        switch type {
+        case .warning:
+            "ic_warning"
+        case .checkbox:
+            "ic_checkbox_fill"
+        }
+    }
+
+    var body: some View {
+        HStack(spacing: 12) {
+            toastIcon
+
+            switch type {
+            case .warning:
+                Text(title)
+                    .momensFont(.bodyB14)
+                    .foregroundStyle(MomensColor.white)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Spacer(minLength: 0)
+
+            case let .checkbox(actionTitle, subtitle, onTap):
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .momensFont(.bodyB14)
+                        .foregroundStyle(MomensColor.white)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    if let subtitle {
+                        Text(subtitle)
+                            .momensFont(.captionM11)
+                            .foregroundStyle(MomensColor.gray300)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+
+                Spacer(minLength: 12)
+
+                Button(action: onTap) {
+                    Text(actionTitle)
+                        .momensFont(.bodyB12)
+                        .foregroundStyle(MomensColor.white)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 4)
+                        .background(
+                            MomensColor.primary50,
+                            in: .rect(cornerRadius: 4)
+                        )
+                        .frame(minWidth: 44, minHeight: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 14)
+        .background(MomensColor.gray700, in: .rect(cornerRadius: 8))
+    }
+
+    @ViewBuilder
+    private var toastIcon: some View {
+        switch type {
+        case .warning:
+            Image(decorative: iconName)
+                .frame(width: 16, height: 16)
+                .frame(width: 24, height: 24)
+
+        case .checkbox:
+            Image(decorative: iconName)
+                .renderingMode(.template)
+                .foregroundStyle(MomensColor.gray400)
+                .frame(width: 24, height: 24)
+        }
+    }
+}
+
+#Preview("MomensToast Variants") {
+    VStack(spacing: 18) {
+        MomensToast(
+            type: .checkbox(
+                actionTitle: "바로보기",
+                subtitle: "text",
+                onTap: {}
+            ),
+            title: "text"
+        )
+        .frame(maxWidth: .infinity)
+
+        MomensToast(type: .warning, title: "text")
+            .frame(maxWidth: .infinity)
+    }
+    .padding(16)
+}
