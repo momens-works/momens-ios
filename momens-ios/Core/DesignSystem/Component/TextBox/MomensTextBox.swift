@@ -1,21 +1,10 @@
 import SwiftUI
 
 struct MomensTextBox: View {
-    enum ColorStyle {
-        case gray
-        case blue
-    }
-
-    enum SizeStyle {
-        case `default`
-        case large
-        case medium
-    }
-
     let text: String
-    var color: ColorStyle = .gray
-    var size: SizeStyle = .default
     var showMinsuIcon = true
+    var color: MomensTextBoxColorStyle = .gray
+    var size: MomensTextBoxSizeStyle = .default
     var isArrow = false
     var icon: Image?
     var onTap: (() -> Void)?

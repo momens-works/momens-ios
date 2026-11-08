@@ -53,7 +53,6 @@
 				Core/DesignSystem/Component/Snackbar/.gitkeep,
 				Core/DesignSystem/Component/Tag/.gitkeep,
 				Core/DesignSystem/Component/TextField/.gitkeep,
-				Core/DesignSystem/Component/Type/.gitkeep,
 				Core/FCM/.gitkeep,
 				Core/Local/.gitkeep,
 				Core/Network/Google/.gitkeep,
