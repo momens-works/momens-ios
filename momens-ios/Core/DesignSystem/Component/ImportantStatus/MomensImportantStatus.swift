@@ -1,37 +1,11 @@
 import SwiftUI
 
 struct MomensImportantStatus: View {
-    enum ColorStyle: CaseIterable, Hashable {
-        case gray
-        case white
-        case blue
-    }
-
     let level: MomensImportantStatusLevel
-    var color: ColorStyle = .gray
-
-    private var backgroundColor: Color {
-        switch color {
-        case .gray:
-            MomensColor.gray100
-        case .white:
-            MomensColor.white
-        case .blue:
-            MomensColor.primary50
-        }
-    }
-
-    private var foregroundColor: Color {
-        color == .blue ? MomensColor.primary10 : MomensColor.gray700
-    }
-
-    private var typography: MomensTypography {
-        color == .blue ? .bodyB12 : .bodyM12
-    }
+    var color: MomensImportantStatusColorStyle = .gray
 
     private var iconName: String {
-        let iconColor = color == .blue ? "blue" : "gray"
-        return "ic_importance_\(level.rawValue)_\(iconColor)"
+        "ic_importance_\(level.rawValue)_\(color.iconColor)"
     }
 
     var body: some View {
@@ -41,19 +15,19 @@ struct MomensImportantStatus: View {
                 .frame(width: 24, height: 24)
 
             Text(level.title)
-                .foregroundStyle(foregroundColor)
-                .momensFont(typography)
+                .foregroundStyle(color.foregroundColor)
+                .momensFont(color.typography)
         }
         .padding(.vertical, 2)
         .padding(.horizontal, 10)
-        .background(backgroundColor)
+        .background(color.backgroundColor)
         .clipShape(.rect(cornerRadius: 4))
     }
 }
 
 #Preview("MomensImportantStatus - Variants") {
     VStack(alignment: .leading, spacing: 12) {
-        ForEach(MomensImportantStatus.ColorStyle.allCases, id: \.self) { color in
+        ForEach(MomensImportantStatusColorStyle.allCases, id: \.self) { color in
             HStack(spacing: 8) {
                 ForEach(MomensImportantStatusLevel.allCases, id: \.self) { level in
                     MomensImportantStatus(level: level, color: color)

@@ -16,3 +16,32 @@ enum MomensImportantStatusLevel: String, CaseIterable, Hashable {
         }
     }
 }
+
+enum MomensImportantStatusColorStyle: CaseIterable, Hashable {
+    case gray
+    case white
+    case blue
+
+    var backgroundColor: Color {
+        switch self {
+        case .gray:
+            MomensColor.gray100
+        case .white:
+            MomensColor.white
+        case .blue:
+            MomensColor.primary50
+        }
+    }
+
+    var foregroundColor: Color {
+        self == .blue ? MomensColor.primary10 : MomensColor.gray700
+    }
+
+    var typography: MomensTypography {
+        self == .blue ? .bodyB12 : .bodyM12
+    }
+
+    var iconColor: String {
+        self == .blue ? "blue" : "gray"
+    }
+}
