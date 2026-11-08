@@ -1,19 +1,14 @@
 import SwiftUI
 
 struct MomensSectionTitle: View {
-    enum Style {
-        case thin
-        case bold
-    }
-
     let text: String
-    let style: Style
+    let style: MomensSectionTitleStyle
     let detail: String?
     private let iconAssetName: String?
 
     init(
         _ text: String,
-        style: Style = .thin,
+        style: MomensSectionTitleStyle = .thin,
         detail: String? = nil
     ) {
         self.text = text
