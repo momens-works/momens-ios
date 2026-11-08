@@ -2,11 +2,9 @@ import SwiftUI
 
 struct MomensTextBox: View {
     let text: String
-    var showMinsuIcon = true
     var color: MomensTextBoxColorStyle = .gray
     var size: MomensTextBoxSizeStyle = .default
     var isArrow = false
-    var icon: Image?
     var onTap: (() -> Void)?
 
     private var textColor: Color {
@@ -27,6 +25,8 @@ struct MomensTextBox: View {
             if let onTap {
                 Button(action: onTap) {
                     content
+                        .frame(minHeight: 44)
+                        .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
             } else {
@@ -37,13 +37,11 @@ struct MomensTextBox: View {
 
     private var content: some View {
         HStack(spacing: 4) {
-            if showMinsuIcon {
-                (icon ?? Image("ic_minsu"))
-                    .renderingMode(.template)
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .foregroundStyle(MomensColor.primary100)
-            }
+            Image(decorative: "ic_minsu")
+                .renderingMode(.template)
+                .resizable()
+                .frame(width: 24, height: 24)
+                .foregroundStyle(MomensColor.primary100)
 
             Text(text)
                 .foregroundStyle(textColor)
@@ -52,7 +50,7 @@ struct MomensTextBox: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
 
             if isArrow {
-                Image("ic_arrow")
+                Image(decorative: "ic_arrow")
                     .renderingMode(.template)
                     .resizable()
                     .frame(width: 24, height: 24)
