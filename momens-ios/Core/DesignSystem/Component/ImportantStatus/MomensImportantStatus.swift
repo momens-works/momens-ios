@@ -1,30 +1,13 @@
 import SwiftUI
 
 struct MomensImportantStatus: View {
-    enum Level: String, CaseIterable, Hashable {
-        case low
-        case medium
-        case high
-
-        var title: String {
-            switch self {
-            case .low:
-                "낮음"
-            case .medium:
-                "중간"
-            case .high:
-                "높음"
-            }
-        }
-    }
-
     enum ColorStyle: CaseIterable, Hashable {
         case gray
         case white
         case blue
     }
 
-    let level: Level
+    let level: MomensImportantStatusLevel
     var color: ColorStyle = .gray
 
     private var backgroundColor: Color {
@@ -72,7 +55,7 @@ struct MomensImportantStatus: View {
     VStack(alignment: .leading, spacing: 12) {
         ForEach(MomensImportantStatus.ColorStyle.allCases, id: \.self) { color in
             HStack(spacing: 8) {
-                ForEach(MomensImportantStatus.Level.allCases, id: \.self) { level in
+                ForEach(MomensImportantStatusLevel.allCases, id: \.self) { level in
                     MomensImportantStatus(level: level, color: color)
                 }
             }
