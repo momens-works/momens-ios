@@ -6,23 +6,23 @@ enum MomensButtonType {
     case black
     case white
 
-    var typography: MomensTypography {
+    func typography(isDropdown: Bool) -> MomensTypography {
         switch self {
         case .primary:
-            .bodyB12
+            isDropdown ? .bodyM12 : .bodyB12
         case .gray, .black, .white:
             .bodyM12
         }
     }
 
-    var textColor: Color {
+    func textColor(isDropdown: Bool) -> Color {
         switch self {
         case .primary, .black:
             MomensColor.white
         case .gray:
             MomensColor.gray700
         case .white:
-            MomensColor.gray500
+            isDropdown ? MomensColor.gray800 : MomensColor.gray500
         }
     }
 
