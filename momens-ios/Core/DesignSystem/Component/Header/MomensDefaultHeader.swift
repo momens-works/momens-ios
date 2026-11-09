@@ -28,6 +28,8 @@ struct MomensDefaultHeader: View {
                     .frame(width: 30, height: 30)
                     .background(MomensColor.primary50, in: .circle)
                     .clipShape(.circle)
+                    .frame(minWidth: 44, minHeight: 44, alignment: .trailing)
+                    .contentShape(.rect)
             }
             .buttonStyle(.plain)
         }

@@ -4,12 +4,10 @@ struct MomensHeader: View {
     let text: String
     let onBackClick: () -> Void
     var backgroundColor: Color = MomensColor.white
-    var isSaveVisible = false
-    var isWriteVisible = false
-    var onWriteClick: () -> Void = {}
-    var onSaveClick: () -> Void = {}
+    var trailingAction: MomensHeaderTrailingAction?
+    var onTrailingClick: () -> Void = {}
 
-    private let sideWidth: CGFloat = 40
+    private let sideWidth: CGFloat = 44
 
     var body: some View {
         HStack(spacing: 8) {
@@ -20,7 +18,8 @@ struct MomensHeader: View {
                     .scaleEffect(x: -1, y: 1)
             }
             .buttonStyle(.plain)
-            .frame(minWidth: sideWidth, alignment: .leading)
+            .frame(minWidth: sideWidth, minHeight: sideWidth, alignment: .leading)
+            .contentShape(.rect)
 
             Text(text)
                 .foregroundStyle(MomensColor.black)
@@ -28,28 +27,27 @@ struct MomensHeader: View {
                 .lineLimit(1)
                 .frame(maxWidth: .infinity)
 
-            HStack(spacing: 8) {
-                if isWriteVisible {
-                    Button(action: onWriteClick) {
-                        Image("ic_write")
-                            .renderingMode(.template)
-                            .foregroundStyle(MomensColor.gray500)
-                    }
-                    .buttonStyle(.plain)
-                }
-
-                if isSaveVisible {
-                    Button(action: onSaveClick) {
-                        Text("완료")
-                            .foregroundStyle(MomensColor.gray900)
-                            .momensFont(.bodyB14)
+            Group {
+                if let trailingAction {
+                    Button(action: onTrailingClick) {
+                        switch trailingAction {
+                        case .write:
+                            Image("ic_write")
+                                .renderingMode(.template)
+                                .foregroundStyle(MomensColor.gray500)
+                        case .save:
+                            Text("완료")
+                                .foregroundStyle(MomensColor.gray900)
+                                .momensFont(.bodyB14)
+                        }
                     }
                     .buttonStyle(.plain)
                 }
             }
-            .frame(minWidth: sideWidth, alignment: .trailing)
+            .frame(minWidth: sideWidth, minHeight: sideWidth, alignment: .trailing)
+            .contentShape(.rect)
         }
-        .padding(.horizontal, 19)
+        .padding(.horizontal, 20)
         .padding(.vertical, 12)
         .frame(maxWidth: .infinity)
         .background(backgroundColor)
@@ -63,13 +61,13 @@ struct MomensHeader: View {
         MomensHeader(
             text: "우우와와우와우와와 타쿠타쿠 챠오 우우와와우와우와와",
             onBackClick: {},
-            isWriteVisible: true
+            trailingAction: .write
         )
 
         MomensHeader(
             text: "우우와와우와우와와 타쿠타쿠 챠오 우우와와우와우와와",
             onBackClick: {},
-            isSaveVisible: true
+            trailingAction: .save
         )
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
