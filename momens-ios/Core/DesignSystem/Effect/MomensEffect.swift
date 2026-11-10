@@ -20,6 +20,7 @@ enum MomensEffect {
         radius: 16
     )
     static let navigationBlurRadius: CGFloat = 4
+    static let navigationBlurIntensity: CGFloat = 0.1
     static let navigationMaterial: Material = .ultraThinMaterial
 }
 
