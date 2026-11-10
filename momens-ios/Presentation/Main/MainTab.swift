@@ -26,4 +26,15 @@ enum MainTab: Hashable, CaseIterable {
             "checklist"
         }
     }
+
+    var iconName: String {
+        switch self {
+        case .signal:
+            "ic_signal"
+        case .brief:
+            "ic_brief"
+        case .project:
+            "ic_task"
+        }
+    }
 }
