@@ -120,7 +120,6 @@
 				Presentation/Loading/Component/.gitkeep,
 				Presentation/Loading/Model/.gitkeep,
 				Presentation/Loading/State/.gitkeep,
-				Presentation/Main/Component/.gitkeep,
 				Presentation/Onboarding/Component/.gitkeep,
 				Presentation/Onboarding/Model/.gitkeep,
 				Presentation/Onboarding/State/.gitkeep,
