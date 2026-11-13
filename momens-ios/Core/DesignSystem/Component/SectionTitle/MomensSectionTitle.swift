@@ -62,9 +62,7 @@ struct MomensSectionTitle: View {
                 .foregroundStyle(foregroundColor)
 
             if let detail {
-                Circle()
-                    .fill(foregroundColor)
-                    .frame(width: 2, height: 2)
+                MomensDot(color: foregroundColor)
 
                 Text(detail)
                     .momensFont(typography)
