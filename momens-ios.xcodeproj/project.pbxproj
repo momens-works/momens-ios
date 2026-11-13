@@ -36,7 +36,6 @@
 				Core/Common/State/.gitkeep,
 				Core/Common/Util/.gitkeep,
 				Core/DesignSystem/Component/BottomSheet/.gitkeep,
-				Core/DesignSystem/Component/Button/.gitkeep,
 				Core/DesignSystem/Component/Checkbox/.gitkeep,
 				Core/DesignSystem/Component/Divider/.gitkeep,
 				Core/DesignSystem/Component/Dot/.gitkeep,
