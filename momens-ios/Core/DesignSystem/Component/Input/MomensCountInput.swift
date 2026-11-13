@@ -4,18 +4,15 @@ struct MomensCountInput: View {
     @Binding private var text: String
     private let placeholder: String
     private let maximumCount: Int
-    private let isError: Bool
 
     init(
         text: Binding<String>,
         placeholder: String,
-        maximumCount: Int,
-        isError: Bool = false
+        maximumCount: Int
     ) {
         _text = text
         self.placeholder = placeholder
         self.maximumCount = max(0, maximumCount)
-        self.isError = isError
     }
 
     var body: some View {
@@ -31,10 +28,10 @@ struct MomensCountInput: View {
     }
 
     private var countColor: Color {
-        if isError {
-            MomensColor.pointRed
-        } else if text.isEmpty {
+        if text.isEmpty {
             MomensColor.gray300
+        } else if text.count >= maximumCount {
+            MomensColor.pointRed
         } else {
             MomensColor.gray400
         }
@@ -61,10 +58,9 @@ struct MomensCountInput: View {
             maximumCount: 15
         )
         MomensCountInput(
-            text: .constant("Title"),
+            text: .constant("Maximum length!"),
             placeholder: "Title",
-            maximumCount: 15,
-            isError: true
+            maximumCount: 15
         )
     }
     .frame(width: 343)
@@ -84,10 +80,9 @@ struct MomensCountInput: View {
             maximumCount: 15
         )
         MomensCountInput(
-            text: .constant("Title"),
+            text: .constant("Maximum length!"),
             placeholder: "Title",
-            maximumCount: 15,
-            isError: true
+            maximumCount: 15
         )
     }
     .frame(width: 277)
