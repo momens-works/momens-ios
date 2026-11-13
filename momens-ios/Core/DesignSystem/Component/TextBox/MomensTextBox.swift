@@ -4,6 +4,7 @@ struct MomensTextBox: View {
     let text: String
     var color: MomensTextBoxColorStyle = .gray
     var size: MomensTextBoxSizeStyle = .default
+    var iconAssetName: String? = "ic_minsu"
     var isArrow = false
     var onTap: (() -> Void)?
 
@@ -37,11 +38,13 @@ struct MomensTextBox: View {
 
     private var content: some View {
         HStack(spacing: 4) {
-            Image(decorative: "ic_minsu")
-                .renderingMode(.template)
-                .resizable()
-                .frame(width: 24, height: 24)
-                .foregroundStyle(MomensColor.primary100)
+            if let iconAssetName {
+                Image(decorative: iconAssetName)
+                    .renderingMode(.template)
+                    .resizable()
+                    .frame(width: 24, height: 24)
+                    .foregroundStyle(MomensColor.primary100)
+            }
 
             Text(text)
                 .foregroundStyle(textColor)
