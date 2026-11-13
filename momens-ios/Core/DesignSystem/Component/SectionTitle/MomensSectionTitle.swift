@@ -69,7 +69,6 @@ struct MomensSectionTitle: View {
                     .foregroundStyle(foregroundColor)
             }
         }
-        .fixedSize(horizontal: true, vertical: false)
     }
 }
 
@@ -83,5 +82,14 @@ struct MomensSectionTitle: View {
             iconAssetName: "ic_canceled"
         )
     }
+    .padding(20)
+}
+
+#Preview("Section Title - Long Text") {
+    MomensSectionTitle(
+        "길이가 긴 제목이 좁은 화면에 표시되는 경우를 확인합니다",
+        detail: "긴 상세 텍스트"
+    )
+    .frame(width: 180)
     .padding(20)
 }
