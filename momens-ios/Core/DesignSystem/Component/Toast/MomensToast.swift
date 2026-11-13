@@ -43,20 +43,8 @@ struct MomensToast: View {
 
                 Spacer(minLength: 12)
 
-                Button(action: onTap) {
-                    Text(actionTitle)
-                        .momensFont(.bodyB12)
-                        .foregroundStyle(MomensColor.white)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 4)
-                        .background(
-                            MomensColor.primary50,
-                            in: .rect(cornerRadius: 4)
-                        )
-                        .frame(minWidth: 44, minHeight: 44)
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
+                MomensButton(text: actionTitle, action: onTap, type: .primary)
+                    .frame(minWidth: 44, minHeight: 44)
             }
         }
         .padding(.vertical, 12)
