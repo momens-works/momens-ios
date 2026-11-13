@@ -6,9 +6,9 @@ struct MomensToast: View {
 
     private var iconName: String {
         switch type {
-        case .warning:
+        case .default:
             "ic_warning"
-        case .checkbox:
+        case .button:
             "ic_checkbox_fill"
         }
     }
@@ -18,7 +18,7 @@ struct MomensToast: View {
             toastIcon
 
             switch type {
-            case .warning:
+            case .default:
                 Text(title)
                     .momensFont(.bodyB14)
                     .foregroundStyle(MomensColor.white)
@@ -26,7 +26,7 @@ struct MomensToast: View {
 
                 Spacer(minLength: 0)
 
-            case let .checkbox(actionTitle, subtitle, onTap):
+            case let .button(actionTitle, subtitle, onTap):
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
                         .momensFont(.bodyB14)
@@ -55,12 +55,12 @@ struct MomensToast: View {
     @ViewBuilder
     private var toastIcon: some View {
         switch type {
-        case .warning:
+        case .default:
             Image(decorative: iconName)
                 .frame(width: 16, height: 16)
                 .frame(width: 24, height: 24)
 
-        case .checkbox:
+        case .button:
             Image(decorative: iconName)
                 .renderingMode(.template)
                 .foregroundStyle(MomensColor.gray400)
@@ -72,7 +72,7 @@ struct MomensToast: View {
 #Preview("MomensToast Variants") {
     VStack(spacing: 18) {
         MomensToast(
-            type: .checkbox(
+            type: .button(
                 actionTitle: "바로보기",
                 subtitle: "text",
                 onTap: {}
@@ -81,7 +81,7 @@ struct MomensToast: View {
         )
         .frame(maxWidth: .infinity)
 
-        MomensToast(type: .warning, title: "text")
+        MomensToast(type: .default, title: "text")
             .frame(maxWidth: .infinity)
     }
     .padding(16)
