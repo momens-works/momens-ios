@@ -7,6 +7,7 @@ struct MomensTextBox: View {
     var iconAssetName: String? = "ic_minsu"
     var isArrow = false
     var onTap: (() -> Void)?
+    var minTouchHeight: CGFloat = 44
 
     private var textColor: Color {
         switch (color, size) {
@@ -26,7 +27,7 @@ struct MomensTextBox: View {
             if let onTap {
                 Button(action: onTap) {
                     content
-                        .frame(minHeight: 44)
+                        .frame(minHeight: minTouchHeight)
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
