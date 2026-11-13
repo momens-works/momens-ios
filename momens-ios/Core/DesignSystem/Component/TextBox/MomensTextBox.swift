@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MomensTextBox: View {
     let text: String
-    var color: MomensTextBoxColorStyle = .gray
+    var color: MomensTextBoxColorStyle = .blue
     var size: MomensTextBoxSizeStyle = .default
     var iconAssetName: String? = "ic_minsu"
     var isArrow = false
@@ -71,22 +71,36 @@ struct MomensTextBox: View {
 
 #Preview("MomensTextBox - Variants") {
     VStack(alignment: .leading, spacing: 10) {
-        MomensTextBox(text: "Text")
+        MomensTextBox(text: "Text", color: .gray)
             .frame(width: 311)
 
         MomensTextBox(text: "Text", color: .blue)
             .frame(width: 311)
 
-        MomensTextBox(text: "Text", size: .large)
-            .frame(width: 343)
-
         MomensTextBox(text: "Text", color: .blue, size: .large)
             .frame(width: 343)
 
-        MomensTextBox(text: "Text", color: .blue, size: .medium, isArrow: true, onTap: {})
+        MomensTextBox(text: "Text", color: .gray, size: .large)
+            .frame(width: 343)
+
+        MomensTextBox(text: "Text", color: .blue, size: .medium, isArrow: true)
             .frame(width: 335)
     }
     .padding(16)
     .frame(width: 375, alignment: .leading)
     .background(MomensColor.gray100)
+}
+
+#Preview("MomensTextBox - Custom Icon and Action") {
+    VStack(spacing: 10) {
+        MomensTextBox(
+            text: "Text",
+            iconAssetName: "ic_canceled",
+            isArrow: true,
+            onTap: {},
+            minTouchHeight: 56
+        )
+        MomensTextBox(text: "Text", iconAssetName: nil)
+    }
+    .padding(16)
 }
