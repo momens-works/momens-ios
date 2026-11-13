@@ -51,7 +51,6 @@
 				Core/DesignSystem/Component/SectionTitle/.gitkeep,
 				Core/DesignSystem/Component/Snackbar/.gitkeep,
 				Core/DesignSystem/Component/Tag/.gitkeep,
-				Core/DesignSystem/Component/TextBox/.gitkeep,
 				Core/DesignSystem/Component/TextField/.gitkeep,
 				Core/FCM/.gitkeep,
 				Core/Local/.gitkeep,
