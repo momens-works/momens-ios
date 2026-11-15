@@ -47,7 +47,7 @@ struct MomensHeader: View {
             .frame(minWidth: sideWidth, minHeight: sideWidth, alignment: .trailing)
             .contentShape(.rect)
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 16)
         .padding(.vertical, 12)
         .frame(maxWidth: .infinity)
         .background(backgroundColor)

@@ -33,7 +33,7 @@ struct MomensDefaultHeader: View {
             }
             .buttonStyle(.plain)
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 16)
         .padding(.vertical, 10)
         .frame(maxWidth: .infinity)
         .background(backgroundColor)
