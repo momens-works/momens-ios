@@ -4,6 +4,7 @@ enum MomensImportantStatusLevel: String, CaseIterable, Hashable {
     case low
     case medium
     case high
+    case urgent
 
     var title: String {
         switch self {
@@ -13,21 +14,24 @@ enum MomensImportantStatusLevel: String, CaseIterable, Hashable {
             "중간"
         case .high:
             "높음"
+        case .urgent:
+            "긴급"
         }
+    }
+
+    var iconAssetLevel: String {
+        self == .urgent ? MomensImportantStatusLevel.high.rawValue : rawValue
     }
 }
 
 enum MomensImportantStatusColorStyle: CaseIterable, Hashable {
     case gray
-    case white
     case blue
 
     var backgroundColor: Color {
         switch self {
         case .gray:
             MomensColor.gray100
-        case .white:
-            MomensColor.white
         case .blue:
             MomensColor.primary50
         }

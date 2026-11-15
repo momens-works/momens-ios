@@ -5,7 +5,7 @@ struct MomensImportantStatus: View {
     var color: MomensImportantStatusColorStyle = .gray
 
     private var iconName: String {
-        "ic_importance_\(level.rawValue)_\(color.iconColor)"
+        "ic_importance_\(level.iconAssetLevel)_\(color.iconColor)"
     }
 
     var body: some View {
