@@ -3,8 +3,8 @@ import SwiftUI
 struct MomensHeader: View {
     let text: String
     let onBackClick: () -> Void
-    var backgroundColor: Color = MomensColor.white
     var trailingAction: MomensHeaderTrailingAction?
+    var backgroundColor: Color = MomensColor.white
     var onTrailingClick: () -> Void = {}
 
     private let sideWidth: CGFloat = 44
