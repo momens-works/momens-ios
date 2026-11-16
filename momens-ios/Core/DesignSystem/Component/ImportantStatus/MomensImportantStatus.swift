@@ -40,3 +40,13 @@ struct MomensImportantStatus: View {
     .padding(16)
     .background(MomensColor.gray100)
 }
+
+#Preview("MomensImportantStatus - White Badge") {
+    HStack(spacing: 8) {
+        ForEach(MomensImportantStatusLevel.allCases, id: \.self) { level in
+            MomensImportantStatus(level: level, style: .whiteBadge)
+        }
+    }
+    .padding(16)
+    .background(MomensColor.gray100)
+}

@@ -27,6 +27,7 @@ enum MomensImportantStatusLevel: String, CaseIterable, Hashable {
 enum MomensImportantStatusStyle: CaseIterable, Hashable {
     case unselected
     case selected
+    case whiteBadge
     case taskList
 
     var backgroundColor: Color {
@@ -35,6 +36,8 @@ enum MomensImportantStatusStyle: CaseIterable, Hashable {
             MomensColor.gray100
         case .selected:
             MomensColor.primary50
+        case .whiteBadge:
+            MomensColor.white
         case .taskList:
             Color.clear
         }
@@ -42,7 +45,7 @@ enum MomensImportantStatusStyle: CaseIterable, Hashable {
 
     var foregroundColor: Color {
         switch self {
-        case .unselected:
+        case .unselected, .whiteBadge:
             MomensColor.gray700
         case .selected:
             MomensColor.primary10
