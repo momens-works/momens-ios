@@ -42,7 +42,11 @@ private struct MomensBottomSheetModifier<SheetContent: View>: ViewModifier {
                 .frame(maxWidth: .infinity)
                 .padding(.top, showsDragHandle ? MomensDragHandle.height : 0)
                 .contentShape(.rect)
-                .onTapGesture(perform: Self.clearFocus)
+                .onTapGesture {
+                    Task { @MainActor in
+                        Self.clearFocus()
+                    }
+                }
                 .onGeometryChange(
                     for: CGFloat.self,
                     of: { $0.size.height + $0.safeAreaInsets.bottom },
