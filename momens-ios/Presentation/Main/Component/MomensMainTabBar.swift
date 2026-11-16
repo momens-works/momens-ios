@@ -41,7 +41,7 @@ private struct MomensMainTabBarItem: View {
     var body: some View {
         Button(action: onClick) {
             VStack(spacing: 0) {
-                Image(tab.iconName)
+                Image(decorative: tab.iconName)
                     .renderingMode(.template)
                     .resizable()
                     .frame(width: 24, height: 24)
@@ -61,6 +61,7 @@ private struct MomensMainTabBarItem: View {
             }
         }
         .buttonStyle(.plain)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 }
 
