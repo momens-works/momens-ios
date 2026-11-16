@@ -32,8 +32,8 @@ private let accordionPreviewItems: [SignalAccordionItem] = [
 private struct SignalAccordionPreview: View {
     @State private var state: SignalAccordionState
 
-    init(items: [SignalAccordionItem]) {
-        _state = State(initialValue: SignalAccordionState(items: items))
+    init(items: [SignalAccordionItem], initiallyExpanded: Bool) {
+        _state = State(initialValue: SignalAccordionState(items: items, initiallyExpanded: initiallyExpanded))
     }
 
     var body: some View {
@@ -47,50 +47,12 @@ private struct SignalAccordionPreview: View {
     }
 }
 
-#Preview("Accordion - Three Items Initially Collapsed") {
-    SignalAccordionPreview(items: accordionPreviewItems)
+#Preview("Accordion - Initially Collapsed") {
+    SignalAccordionPreview(items: accordionPreviewItems, initiallyExpanded: false)
 }
 
-#Preview("Accordion - Two Items Initially Expanded") {
-    SignalAccordionPreview(items: Array(accordionPreviewItems.prefix(2)))
+#Preview("Accordion - Initially Expanded") {
+    SignalAccordionPreview(items: accordionPreviewItems, initiallyExpanded: true)
 }
 
-#Preview("Accordion - Many Items Scroll") {
-    SignalAccordionPreview(items: (0..<10).map { index in
-        SignalAccordionItem(id: "item-\(index)", title: "항목", value: "스크롤 콘텐츠 \(index + 1)")
-    })
-}
-
-#Preview("Accordion - Sources and States") {
-    VStack(spacing: 20) {
-        ForEach(SignalAccordionType.allCases, id: \.self) { type in
-            SignalAccordion(
-                type: type,
-                time: "12분 전",
-                state: SignalAccordionState(items: accordionPreviewItems),
-                onToggle: {}
-            )
-        }
-    }
-    .padding(16)
-}
-
-#Preview("Accordion - Narrow and Long Text") {
-    SignalAccordion(
-        type: .slack,
-        time: "방금 전",
-        state: SignalAccordionState(items: [
-            .init(id: "long", title: "변화", value: String(repeating: "길이가 긴 내용이 여러 줄로 표시됩니다. ", count: 4)),
-            .init(id: "duplicate", title: "변화", value: "동일한 제목을 가진 별개의 행")
-        ]),
-        onToggle: {}
-    )
-    .frame(width: 260)
-    .padding(16)
-}
-
-#Preview("Accordion - Empty") {
-    SignalAccordion(type: .file, time: "1시간 전", state: SignalAccordionState(items: []), onToggle: {})
-        .padding(16)
-}
 #endif

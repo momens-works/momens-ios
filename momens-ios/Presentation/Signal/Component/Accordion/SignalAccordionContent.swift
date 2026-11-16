@@ -4,17 +4,7 @@ struct SignalAccordionContent: View {
     let items: [SignalAccordionItem]
 
     var body: some View {
-        Group {
-            if items.count >= 3 {
-                ScrollView(.vertical) {
-                    rows
-                }
-                .frame(height: 78)
-                .scrollBounceBehavior(.basedOnSize)
-            } else {
-                rows
-            }
-        }
+        rows
         .padding(.horizontal, 20)
         .padding(.vertical, 12)
         .background(

@@ -7,12 +7,12 @@ struct SignalAccordionRow: View {
         HStack(alignment: .top, spacing: 11) {
             Text(item.title)
                 .momensFont(.bodyB12)
-                .foregroundStyle(Color("SignalAccordionLabel"))
+                .foregroundStyle(MomensColor.gray900)
                 .frame(width: 31, alignment: .leading)
 
             Text(item.value)
                 .momensFont(.bodyM12)
-                .foregroundStyle(Color("SignalAccordionValue"))
+                .foregroundStyle(MomensColor.gray400)
                 .fixedSize(horizontal: false, vertical: true)
                 .layoutPriority(1)
 

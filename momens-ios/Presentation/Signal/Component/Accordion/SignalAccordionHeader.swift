@@ -26,13 +26,12 @@ struct SignalAccordionHeader: View {
                     .momensFont(.bodyB12)
                     .foregroundStyle(MomensColor.gray500)
 
-                Image(decorative: "ic_signal_accordion_chevron", bundle: nil)
+                Image(decorative: "ic_next", bundle: nil)
                     .renderingMode(.template)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 11.2, height: 6.44853)
-                    .rotationEffect(.degrees(expanded ? 180 : 0))
                     .frame(width: 20, height: 20)
+                    .rotationEffect(.degrees(expanded ? -90 : 90))
                     .foregroundStyle(MomensColor.black)
                     .padding(.leading, 12)
             }
