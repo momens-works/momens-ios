@@ -24,28 +24,42 @@ enum MomensImportantStatusLevel: String, CaseIterable, Hashable {
     }
 }
 
-enum MomensImportantStatusColorStyle: CaseIterable, Hashable {
-    case gray
-    case blue
+enum MomensImportantStatusStyle: CaseIterable, Hashable {
+    case unselected
+    case selected
+    case taskList
 
     var backgroundColor: Color {
         switch self {
-        case .gray:
+        case .unselected:
             MomensColor.gray100
-        case .blue:
+        case .selected:
             MomensColor.primary50
+        case .taskList:
+            Color.clear
         }
     }
 
     var foregroundColor: Color {
-        self == .blue ? MomensColor.primary10 : MomensColor.gray700
+        switch self {
+        case .unselected:
+            MomensColor.gray700
+        case .selected:
+            MomensColor.primary10
+        case .taskList:
+            MomensColor.gray600
+        }
     }
 
     var typography: MomensTypography {
-        self == .blue ? .bodyB12 : .bodyM12
+        self == .selected ? .bodyB12 : .bodyM12
     }
 
     var iconColor: String {
-        self == .blue ? "blue" : "gray"
+        self == .selected ? "blue" : "gray"
+    }
+
+    var isBadge: Bool {
+        self != .taskList
     }
 }

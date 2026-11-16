@@ -2,10 +2,10 @@ import SwiftUI
 
 struct MomensImportantStatus: View {
     let level: MomensImportantStatusLevel
-    var color: MomensImportantStatusColorStyle = .gray
+    var style: MomensImportantStatusStyle = .unselected
 
     private var iconName: String {
-        "ic_importance_\(level.iconAssetLevel)_\(color.iconColor)"
+        "ic_importance_\(level.iconAssetLevel)_\(style.iconColor)"
     }
 
     var body: some View {
@@ -15,24 +15,26 @@ struct MomensImportantStatus: View {
                 .frame(width: 24, height: 24)
 
             Text(level.title)
-                .foregroundStyle(color.foregroundColor)
-                .momensFont(color.typography)
+                .foregroundStyle(style.foregroundColor)
+                .momensFont(style.typography)
         }
-        .padding(.vertical, 2)
-        .padding(.horizontal, 10)
-        .background(color.backgroundColor)
+        .padding(.vertical, style.isBadge ? 2 : 0)
+        .padding(.horizontal, style.isBadge ? 10 : 0)
+        .background(style.backgroundColor)
         .clipShape(.rect(cornerRadius: 4))
     }
 }
 
 #Preview("MomensImportantStatus - Variants") {
     VStack(alignment: .leading, spacing: 12) {
-        ForEach(MomensImportantStatusColorStyle.allCases, id: \.self) { color in
+        ForEach(MomensImportantStatusStyle.allCases, id: \.self) { style in
             HStack(spacing: 8) {
                 ForEach(MomensImportantStatusLevel.allCases, id: \.self) { level in
-                    MomensImportantStatus(level: level, color: color)
+                    MomensImportantStatus(level: level, style: style)
                 }
             }
+            .padding(style == .taskList ? 8 : 0)
+            .background(style == .taskList ? MomensColor.white : Color.clear)
         }
     }
     .padding(16)
