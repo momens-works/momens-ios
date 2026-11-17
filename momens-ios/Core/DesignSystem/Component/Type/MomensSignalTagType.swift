@@ -1,4 +1,4 @@
-enum SignalTagType: String, CaseIterable, Hashable {
+enum MomensSignalTagType: String, CaseIterable, Hashable {
     case risk
     case decision
     case change

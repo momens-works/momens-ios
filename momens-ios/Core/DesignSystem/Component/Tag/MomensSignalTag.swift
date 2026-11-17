@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct SignalTag: View {
-    let type: SignalTagType
+struct MomensSignalTag: View {
+    let type: MomensSignalTagType
 
     private var backgroundColor: Color {
         switch type {
@@ -28,8 +28,8 @@ struct SignalTag: View {
 
 #Preview("Signal Tag Types") {
     HStack(spacing: 8) {
-        ForEach(SignalTagType.allCases, id: \.self) { type in
-            SignalTag(type: type)
+        ForEach(MomensSignalTagType.allCases, id: \.self) { type in
+            MomensSignalTag(type: type)
         }
     }
     .padding(16)
