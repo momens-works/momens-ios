@@ -48,10 +48,15 @@ struct SignalAccordionHeader: View {
             )
             .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(AccordionHeaderButtonStyle())
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(type.text), \(time)")
         .accessibilityValue(expanded ? "펼쳐짐" : "접힘")
-        .accessibilityHint(expanded ? "접으려면 두 번 탭하세요" : "펼치려면 두 번 탭하세요")
+    }
+}
+
+private struct AccordionHeaderButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
     }
 }
