@@ -62,8 +62,15 @@ private struct SignalAccordionPreview: View {
     SignalAccordionPreview(items: accordionPreviewItems, initiallyExpanded: false)
 }
 
-#Preview("Accordion - Initially Expanded") {
-    SignalAccordionPreview(items: accordionPreviewItems, initiallyExpanded: true)
+#Preview("Accordion - Long Evidence") {
+    SignalAccordionPreview(
+        items: [
+            .init(id: "target", title: "대상", value: "권한 요청 화면"),
+            .init(id: "change", title: "변화", value: String(repeating: "가 ", count: 15)),
+            .init(id: "impact", title: "영향", value: String(repeating: "가 ", count: 15) + "나")
+        ],
+        initiallyExpanded: true
+    )
 }
 
 #endif

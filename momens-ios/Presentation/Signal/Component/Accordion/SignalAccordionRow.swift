@@ -3,6 +3,12 @@ import SwiftUI
 struct SignalAccordionRow: View {
     let item: SignalAccordionItem
 
+    private var displayedValue: String {
+        let maximumLength = 30
+        guard item.value.count > maximumLength else { return item.value }
+        return String(item.value.prefix(maximumLength - 1)) + "…"
+    }
+
     var body: some View {
         HStack(alignment: .top, spacing: 11) {
             Text(item.title)
@@ -10,7 +16,7 @@ struct SignalAccordionRow: View {
                 .foregroundStyle(MomensColor.gray900)
                 .frame(width: 31, alignment: .leading)
 
-            Text(item.value)
+            Text(displayedValue)
                 .momensFont(.bodyM12)
                 .foregroundStyle(MomensColor.gray400)
                 .fixedSize(horizontal: false, vertical: true)
