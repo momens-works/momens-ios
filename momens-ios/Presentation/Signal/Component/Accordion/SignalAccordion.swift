@@ -3,22 +3,36 @@ import SwiftUI
 struct SignalAccordion: View {
     let type: SignalAccordionType
     let time: String
-    let state: SignalAccordionState
-    let onToggle: () -> Void
+    let items: [SignalAccordionItem]
 
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var expanded: Bool
+
+    init(
+        type: SignalAccordionType,
+        time: String,
+        items: [SignalAccordionItem],
+        initiallyExpanded: Bool = false
+    ) {
+        self.type = type
+        self.time = time
+        self.items = items
+        _expanded = State(initialValue: initiallyExpanded)
+    }
 
     var body: some View {
         VStack(spacing: 0) {
-            SignalAccordionHeader(type: type, time: time, expanded: state.expanded, onClick: onToggle)
+            SignalAccordionHeader(type: type, time: time, expanded: expanded) {
+                withAnimation(.smooth(duration: 0.3)) {
+                    expanded.toggle()
+                }
+            }
 
-            if state.expanded {
-                SignalAccordionContent(items: state.items)
-                    .transition(.opacity.combined(with: .move(edge: .top)))
+            if expanded {
+                SignalAccordionContent(items: items)
+                    .transition(.opacity)
             }
         }
         .clipped()
-        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: state.expanded)
     }
 }
 
@@ -30,18 +44,15 @@ private let accordionPreviewItems: [SignalAccordionItem] = [
 ]
 
 private struct SignalAccordionPreview: View {
-    @State private var state: SignalAccordionState
-
-    init(items: [SignalAccordionItem], initiallyExpanded: Bool) {
-        _state = State(initialValue: SignalAccordionState(items: items, initiallyExpanded: initiallyExpanded))
-    }
+    let items: [SignalAccordionItem]
+    let initiallyExpanded: Bool
 
     var body: some View {
         SignalAccordion(
             type: .figma,
             time: "30분 전",
-            state: state,
-            onToggle: { state.toggle() }
+            items: items,
+            initiallyExpanded: initiallyExpanded
         )
         .padding(16)
     }
