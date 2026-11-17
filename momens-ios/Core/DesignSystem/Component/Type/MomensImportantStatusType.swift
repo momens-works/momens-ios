@@ -1,3 +1,4 @@
+import DeveloperToolsSupport
 import SwiftUI
 
 enum MomensImportantStatusLevel: String, CaseIterable, Hashable {
@@ -19,8 +20,15 @@ enum MomensImportantStatusLevel: String, CaseIterable, Hashable {
         }
     }
 
-    var iconAssetLevel: String {
-        self == .urgent ? MomensImportantStatusLevel.high.rawValue : rawValue
+    func iconAsset(isSelected: Bool) -> ImageResource {
+        switch (self, isSelected) {
+        case (.low, false): .icImportanceLowGray
+        case (.low, true): .icImportanceLowBlue
+        case (.medium, false): .icImportanceMediumGray
+        case (.medium, true): .icImportanceMediumBlue
+        case (.high, false), (.urgent, false): .icImportanceHighGray
+        case (.high, true), (.urgent, true): .icImportanceHighBlue
+        }
     }
 }
 
@@ -56,10 +64,6 @@ enum MomensImportantStatusStyle: CaseIterable, Hashable {
 
     var typography: MomensTypography {
         self == .selected ? .bodyB12 : .bodyM12
-    }
-
-    var iconColor: String {
-        self == .selected ? "blue" : "gray"
     }
 
     var isBadge: Bool {

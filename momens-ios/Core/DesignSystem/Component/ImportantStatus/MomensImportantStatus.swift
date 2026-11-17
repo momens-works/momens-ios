@@ -4,13 +4,9 @@ struct MomensImportantStatus: View {
     let level: MomensImportantStatusLevel
     var style: MomensImportantStatusStyle = .unselected
 
-    private var iconName: String {
-        "ic_importance_\(level.iconAssetLevel)_\(style.iconColor)"
-    }
-
     var body: some View {
         HStack(spacing: 4) {
-            Image(iconName)
+            Image(level.iconAsset(isSelected: style == .selected))
                 .resizable()
                 .frame(width: 24, height: 24)
 
