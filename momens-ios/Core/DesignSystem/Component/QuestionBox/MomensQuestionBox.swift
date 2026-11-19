@@ -11,9 +11,8 @@ struct MomensQuestionBox: View {
 
     var body: some View {
         HStack(spacing: 8) {
-            Image("ic_question")
+            Image(decorative: "ic_question")
                 .foregroundStyle(MomensColor.primary100)
-                .accessibilityHidden(true)
 
             Text(text)
                 .momensFont(.bodyM12)
@@ -26,7 +25,6 @@ struct MomensQuestionBox: View {
                 Rectangle()
                     .fill(MomensColor.gray100)
                     .frame(height: 1)
-                    .accessibilityHidden(true)
             }
         }
     }
