@@ -1,28 +1,30 @@
 import SwiftUI
 
-struct MomensFileListItem: View {
+struct TaskDetailFileListItem: View {
     let title: String
     let role: String
     let category: String
-    let onClick: () -> Void
+    let onTap: () -> Void
     // TODO: MOM-1138 병합 후 SignalAccordionType(slack/github/figma/file)을 받아 iconAssetName을 사용하도록 전환
     let iconAssetName: String
 
     var body: some View {
-        Button(action: onClick) {
-            HStack(spacing: 16) {
-                Image(decorative: iconAssetName, bundle: nil)
-                    .renderingMode(.template)
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(MomensColor.primary50)
-                    .frame(width: 24, height: 24)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 7)
-                    .background(MomensColor.white, in: RoundedRectangle(cornerRadius: 4))
+        Button(action: onTap) {
+            HStack(spacing: 0) {
+                HStack(spacing: 16) {
+                    Image(decorative: iconAssetName, bundle: nil)
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundStyle(MomensColor.primary50)
+                        .frame(width: 24, height: 24)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 7)
+                        .background(MomensColor.white, in: RoundedRectangle(cornerRadius: 4))
 
-                textContent
-                    .layoutPriority(1)
+                    textContent
+                        .layoutPriority(1)
+                }
 
                 Spacer(minLength: 0)
 
@@ -64,11 +66,11 @@ struct MomensFileListItem: View {
 }
 
 #Preview("File List Item - Default") {
-    MomensFileListItem(
+    TaskDetailFileListItem(
         title: "회원가입 에러 메시지 정책 초안",
         role: "PM",
         category: "copy policy",
-        onClick: {},
+        onTap: {},
         iconAssetName: "ic_file"
     )
     .frame(width: 343)
@@ -76,11 +78,11 @@ struct MomensFileListItem: View {
 }
 
 #Preview("File List Item - Long Text and Custom Icon") {
-    MomensFileListItem(
+    TaskDetailFileListItem(
         title: "회원가입 에러 메시지 정책 초안과 온보딩 화면 디자인 검토 자료",
         role: "Product Designer",
         category: "2026.07.15 22:48",
-        onClick: {},
+        onTap: {},
         iconAssetName: "ic_figma"
     )
     .frame(width: 280)

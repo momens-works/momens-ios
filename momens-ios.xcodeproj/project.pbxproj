@@ -127,7 +127,6 @@
 				Presentation/Project/Task/Component/.gitkeep,
 				Presentation/Project/Task/Model/.gitkeep,
 				Presentation/Project/Task/State/.gitkeep,
-				Presentation/Project/TaskDetail/Component/.gitkeep,
 				Presentation/Project/TaskDetail/Model/.gitkeep,
 				Presentation/Project/TaskDetail/State/.gitkeep,
 				Presentation/Project/TaskEdit/Component/.gitkeep,
