@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MomensTaskTag: View {
-    let type: MomensStatusEditType
+    let type: MomensTaskStatusType
 
     var body: some View {
         HStack(spacing: 2) {
@@ -28,7 +28,7 @@ struct MomensTaskTag: View {
 
 #Preview("Task Tag Statuses") {
     VStack(alignment: .leading, spacing: 20) {
-        ForEach(MomensStatusEditType.allCases, id: \.self) { type in
+        ForEach(MomensTaskStatusType.allCases, id: \.self) { type in
             MomensTaskTag(type: type)
         }
     }

@@ -1,4 +1,4 @@
-enum MomensStatusEditType: String, CaseIterable {
+enum MomensTaskStatusType: String, CaseIterable {
     case todo
     case inProgress = "in_progress"
     case done
