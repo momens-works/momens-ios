@@ -5,7 +5,7 @@ struct TaskDetailFileListItem: View {
     let role: String
     let category: String
     let onTap: () -> Void
-    // TODO: MOM-1138 병합 후 SignalAccordionType(slack/github/figma/file)을 받아 iconAssetName을 사용하도록 전환
+    // MOM-1138에서 SignalAccordionType을 연동하면 타입의 iconAssetName을 사용합니다.
     let iconAssetName: String
 
     var body: some View {
