@@ -3,10 +3,12 @@ import SwiftUI
 
 struct MomensPeopleListItem: View {
     let text: String
-    let onDeleteClick: () -> Void
+    var profileImageUrl: String?
+
     var isSelected = false
     var showsProfile = true
-    var profileImageUrl: String?
+
+    var onDeleteClick: (() -> Void)?
     var onClick: () -> Void = {}
 
     private var profileURL: URL? {
@@ -40,7 +42,7 @@ struct MomensPeopleListItem: View {
             .accessibilityLabel(text)
             .accessibilityAddTraits(isSelected ? .isSelected : [])
 
-            if isSelected {
+            if isSelected, let onDeleteClick {
                 MomensButton(text: "삭제", action: onDeleteClick, type: .white)
                     .fixedSize()
                     .accessibilityLabel("\(text) 삭제")
@@ -81,50 +83,40 @@ struct MomensPeopleListItem: View {
 
 #Preview("PeopleList - Figma States") {
     VStack(spacing: 16) {
-        MomensPeopleListItem(text: "강채원", onDeleteClick: {})
-        MomensPeopleListItem(text: "강채원", onDeleteClick: {}, isSelected: true)
-        MomensPeopleListItem(text: "강채원", onDeleteClick: {}, showsProfile: false)
-        MomensPeopleListItem(text: "강채원", onDeleteClick: {}, isSelected: true, showsProfile: false)
+        MomensPeopleListItem(text: "강채원")
+        MomensPeopleListItem(text: "강채원", isSelected: true, onDeleteClick: {})
+        MomensPeopleListItem(text: "강채원", showsProfile: false)
+        MomensPeopleListItem(text: "강채원", isSelected: true, showsProfile: false, onDeleteClick: {})
     }
     .frame(width: 343)
     .padding(16)
     .background(MomensColor.gray100)
 }
 
-#Preview("PeopleList - Selection and Deletion") {
+#Preview("PeopleList - Unselected") {
     @Previewable @State var isSelected = false
-    @Previewable @State var selectionCount = 0
-    @Previewable @State var deletionCount = 0
 
-    VStack(spacing: 16) {
-        MomensPeopleListItem(
-            text: "강채원",
-            onDeleteClick: {
-                deletionCount += 1
-                isSelected = false
-            },
-            isSelected: isSelected,
-            onClick: {
-                selectionCount += 1
-                isSelected = true
-            }
-        )
-
-        Text("선택 \(selectionCount)회 · 삭제 \(deletionCount)회")
-            .momensFont(.bodyM12)
-    }
+    MomensPeopleListItem(
+        text: "강채원",
+        isSelected: isSelected,
+        onDeleteClick: { isSelected = false },
+        onClick: { isSelected.toggle() }
+    )
     .frame(width: 343)
     .padding(16)
     .background(MomensColor.gray100)
 }
 
-#Preview("PeopleList - Long Name") {
+#Preview("PeopleList - Selected") {
+    @Previewable @State var isSelected = true
+
     MomensPeopleListItem(
-        text: "긴 이름을 가진 프로젝트 참여자 강채원입니다",
-        onDeleteClick: {},
-        isSelected: true
+        text: "강채원",
+        isSelected: isSelected,
+        onDeleteClick: { isSelected = false },
+        onClick: { isSelected.toggle() }
     )
-    .frame(width: 240)
+    .frame(width: 343)
     .padding(16)
     .background(MomensColor.gray100)
 }
