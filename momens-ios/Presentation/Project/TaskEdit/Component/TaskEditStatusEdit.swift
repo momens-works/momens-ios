@@ -44,13 +44,13 @@ struct TaskEditStatusEdit: View {
     .background(MomensColor.gray100)
 }
 
-#Preview("Status Edit - Select a Status") {
-    @Previewable @State var selected: MomensStatusEditType = .backlog
+#Preview("Status Edit - Toggle Selection") {
+    @Previewable @State var selected: MomensStatusEditType?
 
     VStack(spacing: 8) {
         ForEach(MomensStatusEditType.allCases, id: \.self) { type in
             TaskEditStatusEdit(type: type, isSelected: selected == type) {
-                selected = type
+                selected = selected == type ? nil : type
             }
         }
     }
