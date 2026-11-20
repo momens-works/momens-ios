@@ -1,7 +1,7 @@
 import Kingfisher
 import SwiftUI
 
-struct TaskEditPeopleListItem: View {
+struct MomensPeopleListItem: View {
     let text: String
     let onDeleteClick: () -> Void
     var isSelected = false
@@ -81,10 +81,10 @@ struct TaskEditPeopleListItem: View {
 
 #Preview("PeopleList - Figma States") {
     VStack(spacing: 16) {
-        TaskEditPeopleListItem(text: "강채원", onDeleteClick: {})
-        TaskEditPeopleListItem(text: "강채원", onDeleteClick: {}, isSelected: true)
-        TaskEditPeopleListItem(text: "강채원", onDeleteClick: {}, showsProfile: false)
-        TaskEditPeopleListItem(text: "강채원", onDeleteClick: {}, isSelected: true, showsProfile: false)
+        MomensPeopleListItem(text: "강채원", onDeleteClick: {})
+        MomensPeopleListItem(text: "강채원", onDeleteClick: {}, isSelected: true)
+        MomensPeopleListItem(text: "강채원", onDeleteClick: {}, showsProfile: false)
+        MomensPeopleListItem(text: "강채원", onDeleteClick: {}, isSelected: true, showsProfile: false)
     }
     .frame(width: 343)
     .padding(16)
@@ -97,7 +97,7 @@ struct TaskEditPeopleListItem: View {
     @Previewable @State var deletionCount = 0
 
     VStack(spacing: 16) {
-        TaskEditPeopleListItem(
+        MomensPeopleListItem(
             text: "강채원",
             onDeleteClick: {
                 deletionCount += 1
@@ -119,7 +119,7 @@ struct TaskEditPeopleListItem: View {
 }
 
 #Preview("PeopleList - Long Name") {
-    TaskEditPeopleListItem(
+    MomensPeopleListItem(
         text: "긴 이름을 가진 프로젝트 참여자 강채원입니다",
         onDeleteClick: {},
         isSelected: true
