@@ -1,4 +1,4 @@
-enum SignalAccordionType: CaseIterable {
+enum MomensSourceType: CaseIterable {
     case slack
     case github
     case figma

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SignalAccordionHeader: View {
-    let type: SignalAccordionType
+    let type: MomensSourceType
     let time: String
     let expanded: Bool
     let onClick: () -> Void

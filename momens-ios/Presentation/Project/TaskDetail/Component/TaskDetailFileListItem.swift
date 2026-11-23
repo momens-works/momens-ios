@@ -4,15 +4,14 @@ struct TaskDetailFileListItem: View {
     let title: String
     let role: String
     let category: String
+    let type: MomensSourceType
     let onTap: () -> Void
-    // MOM-1138에서 SignalAccordionType을 연동하면 타입의 iconAssetName을 사용합니다.
-    let iconAssetName: String
 
     var body: some View {
         Button(action: onTap) {
             HStack(spacing: 0) {
                 HStack(spacing: 16) {
-                    Image(decorative: iconAssetName, bundle: nil)
+                    Image(decorative: type.iconAssetName, bundle: nil)
                         .renderingMode(.template)
                         .resizable()
                         .scaledToFit()
@@ -70,8 +69,8 @@ struct TaskDetailFileListItem: View {
         title: "회원가입 에러 메시지 정책 초안",
         role: "PM",
         category: "copy policy",
-        onTap: {},
-        iconAssetName: "ic_file"
+        type: .file,
+        onTap: {}
     )
     .frame(width: 343)
     .padding(16)
@@ -82,8 +81,8 @@ struct TaskDetailFileListItem: View {
         title: "회원가입 에러 메시지 정책 초안과 온보딩 화면 디자인 검토 자료",
         role: "Product Designer",
         category: "2026.07.15 22:48",
-        onTap: {},
-        iconAssetName: "ic_figma"
+        type: .figma,
+        onTap: {}
     )
     .frame(width: 280)
     .padding(16)
