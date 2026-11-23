@@ -127,8 +127,6 @@
 				Presentation/SignIn/Component/.gitkeep,
 				Presentation/SignIn/Model/.gitkeep,
 				Presentation/SignIn/State/.gitkeep,
-				Presentation/Signal/Model/.gitkeep,
-				Presentation/Signal/State/.gitkeep,
 				Presentation/Splash/Component/.gitkeep,
 				Presentation/Splash/Model/.gitkeep,
 				Presentation/Splash/State/.gitkeep,
