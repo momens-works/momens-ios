@@ -5,7 +5,7 @@ enum MomensStatusEditType: String, CaseIterable, Hashable {
     case todo
     case inProgress = "in_progress"
     case done
-    case canceled = "cancelled"
+    case canceled = "canceled"
 
     var label: String {
         switch self {
