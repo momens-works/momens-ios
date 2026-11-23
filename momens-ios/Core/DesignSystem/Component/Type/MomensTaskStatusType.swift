@@ -1,3 +1,5 @@
+import DeveloperToolsSupport
+
 enum MomensTaskStatusType: String, CaseIterable {
     case todo
     case inProgress = "in_progress"
@@ -20,18 +22,18 @@ enum MomensTaskStatusType: String, CaseIterable {
         }
     }
 
-    var iconName: String {
+    var iconAsset: ImageResource {
         switch self {
         case .todo:
-            "ic_todo"
+            .icTodo
         case .inProgress:
-            "ic_inprogress"
+            .icInprogress
         case .done:
-            "ic_done"
+            .icDone
         case .canceled:
-            "ic_canceled"
+            .icCanceled
         case .backlog:
-            "ic_backlog"
+            .icBacklog
         }
     }
 }

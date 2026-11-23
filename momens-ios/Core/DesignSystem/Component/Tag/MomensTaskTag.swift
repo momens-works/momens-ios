@@ -5,7 +5,7 @@ struct MomensTaskTag: View {
 
     var body: some View {
         HStack(spacing: 2) {
-            Image(type.iconName)
+            Image(type.iconAsset)
                 .resizable()
                 .renderingMode(.template)
                 .scaledToFit()
