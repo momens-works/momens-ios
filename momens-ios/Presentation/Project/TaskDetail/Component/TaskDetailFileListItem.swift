@@ -47,7 +47,6 @@ struct TaskDetailFileListItem: View {
             Text(title)
                 .momensFont(.bodyB12)
                 .foregroundStyle(MomensColor.black)
-                .lineLimit(1)
 
             HStack(spacing: 6) {
                 Text(role)
@@ -59,7 +58,6 @@ struct TaskDetailFileListItem: View {
             }
             .momensFont(.captionM11)
             .foregroundStyle(MomensColor.gray400)
-            .lineLimit(1)
         }
     }
 }
