@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct SignalAccordion: View {
-    let type: SignalAccordionType
+    let type: MomensSourceType
     let time: String
     let items: [SignalAccordionItem]
 
     @State private var expanded: Bool
 
     init(
-        type: SignalAccordionType,
+        type: MomensSourceType,
         time: String,
         items: [SignalAccordionItem],
         initiallyExpanded: Bool = false
