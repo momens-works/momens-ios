@@ -12,6 +12,8 @@ struct MomensQuestionBox: View {
     var body: some View {
         HStack(spacing: 8) {
             Image(decorative: "ic_question")
+                .resizable()
+                .frame(width: 24, height: 24)
                 .foregroundStyle(MomensColor.primary100)
 
             Text(text)
@@ -19,6 +21,7 @@ struct MomensQuestionBox: View {
                 .foregroundStyle(MomensColor.gray800)
                 .fixedSize(horizontal: false, vertical: true)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(10)
         .overlay(alignment: .bottom) {
             if style == .line {
