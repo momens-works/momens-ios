@@ -45,11 +45,9 @@
 				Core/Common/Permission/.gitkeep,
 				Core/Common/State/.gitkeep,
 				Core/Common/Util/.gitkeep,
-				Core/DesignSystem/Component/BottomSheet/.gitkeep,
 				Core/DesignSystem/Component/Checkbox/.gitkeep,
 				Core/DesignSystem/Component/Divider/.gitkeep,
 				Core/DesignSystem/Component/EmptyView/.gitkeep,
-				Core/DesignSystem/Component/List/.gitkeep,
 				Core/DesignSystem/Component/Logo/.gitkeep,
 				Core/DesignSystem/Component/PageTitle/.gitkeep,
 				Core/DesignSystem/Component/ProgressBar/.gitkeep,
@@ -121,7 +119,6 @@
 				Presentation/Loading/Component/.gitkeep,
 				Presentation/Loading/Model/.gitkeep,
 				Presentation/Loading/State/.gitkeep,
-				Presentation/Main/Component/.gitkeep,
 				Presentation/Onboarding/Component/.gitkeep,
 				Presentation/Onboarding/Model/.gitkeep,
 				Presentation/Onboarding/State/.gitkeep,
@@ -129,10 +126,8 @@
 				Presentation/Project/Task/Component/.gitkeep,
 				Presentation/Project/Task/Model/.gitkeep,
 				Presentation/Project/Task/State/.gitkeep,
-				Presentation/Project/TaskDetail/Component/.gitkeep,
 				Presentation/Project/TaskDetail/Model/.gitkeep,
 				Presentation/Project/TaskDetail/State/.gitkeep,
-				Presentation/Project/TaskEdit/Component/.gitkeep,
 				Presentation/Project/TaskEdit/Model/.gitkeep,
 				Presentation/Project/TaskEdit/State/.gitkeep,
 				Presentation/Signal/Model/.gitkeep,
@@ -187,7 +182,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12068B4A30B48AC0004EE232 /* Recovered References */ = {
+		12E7A29B30B030FA00210227 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				B10000000000000000000004 /* XCTest.framework */,
@@ -201,7 +196,7 @@
 				2444EA4B3052D2050008B8AE /* momens-ios */,
 				B10000000000000000000007 /* momens-iosTests */,
 				2444EA4A3052D2050008B8AE /* Products */,
-				12068B4A30B48AC0004EE232 /* Recovered References */,
+				12E7A29B30B030FA00210227 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
