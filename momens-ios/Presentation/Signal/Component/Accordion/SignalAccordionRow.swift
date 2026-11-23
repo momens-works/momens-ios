@@ -4,7 +4,7 @@ struct SignalAccordionRow: View {
     let item: SignalAccordionItem
 
     private var displayedValue: String {
-        let maximumLength = 30
+        let maximumLength = 40
         guard item.value.count > maximumLength else { return item.value }
         return String(item.value.prefix(maximumLength - 1)) + "…"
     }
