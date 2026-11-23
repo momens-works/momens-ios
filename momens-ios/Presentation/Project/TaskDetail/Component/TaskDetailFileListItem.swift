@@ -7,6 +7,12 @@ struct TaskDetailFileListItem: View {
     let type: MomensSourceType
     let onTap: () -> Void
 
+    private var displayedCategory: String {
+        let maximumLength = 30
+        guard category.count > maximumLength else { return category }
+        return String(category.prefix(maximumLength - 1)) + "…"
+    }
+
     var body: some View {
         Button(action: onTap) {
             HStack(spacing: 0) {
@@ -54,7 +60,7 @@ struct TaskDetailFileListItem: View {
                 MomensDot(color: MomensColor.gray400)
                     .accessibilityHidden(true)
 
-                Text(category)
+                Text(displayedCategory)
             }
             .momensFont(.captionM11)
             .foregroundStyle(MomensColor.gray400)
