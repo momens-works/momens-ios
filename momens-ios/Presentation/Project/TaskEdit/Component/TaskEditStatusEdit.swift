@@ -12,7 +12,7 @@ struct TaskEditStatusEdit: View {
                     .renderingMode(.template)
                     .resizable()
                     .frame(width: 24, height: 24)
-                    .foregroundStyle(MomensColor.primary100)
+                    .foregroundStyle(isSelected ? MomensColor.primary100 : MomensColor.gray500)
                     .accessibilityHidden(true)
 
                 Text(type.label)
