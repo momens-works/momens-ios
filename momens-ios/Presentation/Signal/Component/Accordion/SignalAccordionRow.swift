@@ -18,7 +18,7 @@ struct SignalAccordionRow: View {
 
             Text(displayedValue)
                 .momensFont(.bodyM12)
-                .foregroundStyle(MomensColor.gray400)
+                .foregroundStyle(MomensColor.gray500)
                 .fixedSize(horizontal: false, vertical: true)
                 .layoutPriority(1)
 
