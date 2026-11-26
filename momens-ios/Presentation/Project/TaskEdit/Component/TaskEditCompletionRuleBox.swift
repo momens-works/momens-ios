@@ -8,6 +8,15 @@ struct TaskEditCompletionRuleBox: View {
 
     @FocusState private var isTextFocused: Bool
 
+    private let maximumCount = 50
+
+    private var limitedText: Binding<String> {
+        Binding(
+            get: { text },
+            set: { text = String($0.prefix(maximumCount)) }
+        )
+    }
+
     private var isEmpty: Bool {
         text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
@@ -37,7 +46,7 @@ struct TaskEditCompletionRuleBox: View {
 
                 TextField(
                     "",
-                    text: $text,
+                    text: limitedText,
                     prompt: Text("완료 기준을 기재해주세요")
                         .foregroundStyle(MomensColor.gray300),
                     axis: .vertical
