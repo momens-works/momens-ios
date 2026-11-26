@@ -1,57 +1,58 @@
 import SwiftUI
 
-struct TaskEditDragHandle: View{
-    let onDragStart: ()-> Void
+struct TaskEditDragHandle: View {
+    let onDragStart: () -> Void
     let onDragChanged: (CGSize) -> Void
-    let onDragEnded : ()-> Void
-    
+    let onDragEnded: () -> Void
+
     @GestureState private var isDragging = false
-    
+
     @State private var hasActiveDrag = false
-    
-    var body: some View{
+
+    var body: some View {
         RoundedRectangle(cornerRadius: 6)
             .fill(MomensColor.gray200)
-            .frame(width:2)
+            .frame(width: 2)
             .frame(maxHeight: .infinity)
-            .padding(.vertical,3)
-            .frame(width : 24)
+            .padding(.vertical, 3)
+            .frame(width: 24)
             .contentShape(Rectangle())
             .gesture(dragGesture)
             .onChange(of: isDragging) { _, isDragging in
-                    if !isDragging{
-                        finishDrag()
-                    }
-                }
-                .onDisappear(){
+                if !isDragging {
                     finishDrag()
                 }
-                                    
+            }
+            .onDisappear {
+                finishDrag()
+            }
     }
-    
-    private var dragGesture: some Gesture{
+
+    private var dragGesture: some Gesture {
         DragGesture(
             minimumDistance: 5,
             coordinateSpace: .global
         )
-        .updating($isDragging) {_, state, _ in state = true}
-        .onChanged{ value in if !hasActiveDrag{
-            hasActiveDrag = true
-            onDragStart()
+        .updating($isDragging) { _, state, _ in
+            state = true
         }
-            
-            onDragChanged(value.translation)
-                
+        .onChanged { value in
+            if !hasActiveDrag {
+                hasActiveDrag = true
+                onDragStart()
             }
-        .onEnded{
-            value in onDragChanged(value.translation)
+
+            onDragChanged(value.translation)
+        }
+        .onEnded { value in
+            onDragChanged(value.translation)
             finishDrag()
         }
     }
-    
-    private func finishDrag(){
-        guard hasActiveDrag else {return }
-        
+
+    private func finishDrag() {
+        guard hasActiveDrag else { return }
+
         hasActiveDrag = false
         onDragEnded()
     }
