@@ -5,30 +5,33 @@ struct TaskEditCompletionRuleBox: View {
     @Binding var isChecked: Bool
 
     let onDeleteTap: () -> Void
+    let onDragStart: () -> Void
+    let onDragChanged: (CGSize) -> Void
+    let onDragEnded: () -> Void
 
     @FocusState private var isTextFocused: Bool
-
-    private let maximumCount = 50
-
-    private var limitedText: Binding<String> {
-        Binding(
-            get: { text },
-            set: { text = String($0.prefix(maximumCount)) }
-        )
-    }
 
     private var isEmpty: Bool {
         text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
+    private var limitedText: Binding<String> {
+        Binding(
+            get: { text },
+            set: { text = String($0.prefix(50)) }
+        )
+    }
+
     var body: some View {
         HStack(spacing: 12) {
-            RoundedRectangle(cornerRadius: 6)
-                .fill(MomensColor.gray200)
-                .frame(width: 2)
-                .frame(maxHeight: .infinity)
-                .padding(.vertical, 3)
-                .accessibilityHidden(true)
+            TaskEditDragHandle(
+                onDragStart: {
+                    isTextFocused = false
+                    onDragStart()
+                },
+                onDragChanged: onDragChanged,
+                onDragEnded: onDragEnded
+            )
 
             HStack(spacing: 8) {
                 Button {
@@ -41,8 +44,6 @@ struct TaskEditCompletionRuleBox: View {
                 }
                 .buttonStyle(MomensButtonStyle())
                 .disabled(isEmpty)
-                .accessibilityLabel("완료 조건")
-                .accessibilityValue(isChecked ? "완료" : "미완료")
 
                 TextField(
                     "",
@@ -57,9 +58,6 @@ struct TaskEditCompletionRuleBox: View {
                 .tint(MomensColor.gray800)
                 .focused($isTextFocused)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .accessibilityLabel("완료 조건 내용")
-
-                Spacer(minLength: 0)
             }
 
             Button {
@@ -89,34 +87,34 @@ struct TaskEditCompletionRuleBox: View {
     }
 }
 
-private struct TaskEditCompletionRuleBoxPreview: View {
-    private struct Rule: Identifiable, Equatable {
-        let id = UUID()
-        var text = ""
-        var isChecked = false
-    }
+#Preview("Completion Rule Box - Drag Handle"){
+    @Previewable @State var text = ""
+    @Previewable @State  var isChecked = false
+    @Previewable @State  var isVisible = true
+    @Previewable @State  var dragOffset: CGSize = .zero
 
-    @State private var rules: [Rule] = [Rule()]
-
-    var body: some View {
-        VStack(spacing: 12) {
-            ForEach($rules) { $rule in
-                let ruleID = rule.id
-
-                TaskEditCompletionRuleBox(
-                    text: $rule.text,
-                    isChecked: $rule.isChecked,
-                    onDeleteTap: {
-                        rules.removeAll { $0.id == ruleID }
-                    }
-                )
-            }
+    VStack {
+        if isVisible {
+            TaskEditCompletionRuleBox(
+                text: $text,
+                isChecked: $isChecked,
+                onDeleteTap: {
+                    isVisible = false
+                },
+                onDragStart: {
+                    dragOffset = .zero
+                },
+                onDragChanged: { translation in
+                    dragOffset = translation
+                },
+                onDragEnded: {
+                    dragOffset = .zero
+                }
+            )
+            .offset(y: dragOffset.height)
         }
-        .frame(width: 343)
-        .padding(20)
     }
-}
-
-#Preview("Completion Rule Box") {
-    TaskEditCompletionRuleBoxPreview()
+    .frame(width: 343)
+    .frame(minHeight: 200)
+    .padding(20)
 }
