@@ -19,6 +19,12 @@ enum MomensTypography {
         Font.custom(fontName, size: fontSize)
     }
 
+    var uiFont: UIFont {
+        UIFont(name: fontName, size: fontSize) ?? .systemFont(ofSize: fontSize)
+    }
+
+    var uiLineHeight: CGFloat { lineHeight }
+
     var lineSpacing: CGFloat {
         lineHeight - (UIFont(name: fontName, size: fontSize)?.lineHeight ?? fontSize)
     }
