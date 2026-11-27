@@ -113,8 +113,6 @@
 				Data/SignIn/Remote/DTO/Response/.gitkeep,
 				Data/SignIn/Repository/.gitkeep,
 				Data/SignIn/RepositoryImpl/.gitkeep,
-				Presentation/Brief/Component/.gitkeep,
-				Presentation/Brief/Model/.gitkeep,
 				Presentation/Brief/State/.gitkeep,
 				Presentation/Loading/Component/.gitkeep,
 				Presentation/Loading/Model/.gitkeep,
