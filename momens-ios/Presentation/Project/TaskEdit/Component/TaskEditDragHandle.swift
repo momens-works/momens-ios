@@ -1,6 +1,14 @@
 import SwiftUI
 
 struct TaskEditDragHandle: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 6)
+            .fill(MomensColor.gray200)
+            .frame(width: 2)
+    }
+}
+
+struct TaskEditDragHandler: ViewModifier {
     let onDragStart: () -> Void
     let onDragChanged: (CGSize) -> Void
     let onDragEnded: () -> Void
@@ -9,14 +17,8 @@ struct TaskEditDragHandle: View {
 
     @State private var hasActiveDrag = false
 
-    var body: some View {
-        RoundedRectangle(cornerRadius: 6)
-            .fill(MomensColor.gray200)
-            .frame(width: 2)
-            .frame(maxHeight: .infinity)
-            .padding(.vertical, 3)
-            .frame(width: 24)
-            .contentShape(Rectangle())
+    func body(content: Content) -> some View {
+        content
             .gesture(dragGesture)
             .onChange(of: isDragging) { _, isDragging in
                 if !isDragging {

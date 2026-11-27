@@ -24,14 +24,19 @@ struct TaskEditCompletionRuleBox: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            TaskEditDragHandle(
-                onDragStart: {
-                    isTextFocused = false
-                    onDragStart()
-                },
-                onDragChanged: onDragChanged,
-                onDragEnded: onDragEnded
-            )
+            TaskEditDragHandle()
+                .frame(maxHeight: .infinity)
+                .padding(.vertical, 3)
+                .frame(width: 24)
+                .contentShape(Rectangle())
+                .modifier(TaskEditDragHandler(
+                    onDragStart: {
+                        isTextFocused = false
+                        onDragStart()
+                    },
+                    onDragChanged: onDragChanged,
+                    onDragEnded: onDragEnded
+                ))
 
             HStack(spacing: 8) {
                 Button {
