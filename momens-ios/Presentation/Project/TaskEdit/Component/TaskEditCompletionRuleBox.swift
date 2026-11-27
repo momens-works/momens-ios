@@ -9,17 +9,10 @@ struct TaskEditCompletionRuleBox: View {
     let onDragChanged: (CGSize) -> Void
     let onDragEnded: () -> Void
 
-    @FocusState private var isTextFocused: Bool
+    @State private var isTextFocused = false
 
     private var isEmpty: Bool {
         text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-    }
-
-    private var limitedText: Binding<String> {
-        Binding(
-            get: { text },
-            set: { text = String($0.prefix(50)) }
-        )
     }
 
     var body: some View {
@@ -50,18 +43,10 @@ struct TaskEditCompletionRuleBox: View {
                 .buttonStyle(MomensButtonStyle())
                 .disabled(isEmpty)
 
-                TextField(
-                    "",
-                    text: limitedText,
-                    prompt: Text("완료 기준을 기재해주세요")
-                        .foregroundStyle(MomensColor.gray300),
-                    axis: .vertical
+                TaskEditCompletionRuleInput(
+                    text: $text,
+                    isFocused: $isTextFocused
                 )
-                .textFieldStyle(.plain)
-                .momensFont(.bodyM12)
-                .foregroundStyle(MomensColor.gray800)
-                .tint(MomensColor.gray800)
-                .focused($isTextFocused)
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
 
@@ -92,11 +77,11 @@ struct TaskEditCompletionRuleBox: View {
     }
 }
 
-#Preview("Completion Rule Box - Drag Handle"){
+#Preview("Completion Rule Box - Drag Handle") {
     @Previewable @State var text = ""
-    @Previewable @State  var isChecked = false
-    @Previewable @State  var isVisible = true
-    @Previewable @State  var dragOffset: CGSize = .zero
+    @Previewable @State var isChecked = false
+    @Previewable @State var isVisible = true
+    @Previewable @State var dragOffset: CGSize = .zero
 
     VStack {
         if isVisible {
