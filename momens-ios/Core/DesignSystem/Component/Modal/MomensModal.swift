@@ -3,6 +3,8 @@ import SwiftUI
 struct MomensModal: View {
     let title: String
     let message: String
+    var cancelText = "취소하기"
+    var confirmText = "삭제하기"
     let onCancel: () -> Void
     let onConfirm: () -> Void
 
@@ -27,25 +29,17 @@ struct MomensModal: View {
             }
 
             HStack(spacing: 8) {
-                Button(action: onCancel) {
-                    Text("취소하기")
-                        .foregroundStyle(MomensColor.white)
+                MomensCtaButton(action: onCancel, type: .cancel) {
+                    Text(cancelText)
+                        .foregroundStyle(MomensColor.gray700)
                         .momensFont(.bodyB16)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(MomensColor.gray300, in: .rect(cornerRadius: 8))
                 }
-                .buttonStyle(.plain)
 
-                Button(action: onConfirm) {
-                    Text("삭제하기")
+                MomensCtaButton(action: onConfirm) {
+                    Text(confirmText)
                         .foregroundStyle(MomensColor.white)
                         .momensFont(.bodyB16)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(MomensColor.primary100, in: .rect(cornerRadius: 8))
                 }
-                .buttonStyle(.plain)
             }
         }
         .padding(.horizontal, 20)
@@ -58,6 +52,21 @@ struct MomensModal: View {
     MomensModal(
         title: "태스크를 삭제하시겠습니까?",
         message: "삭제하면 복구할 수 없습니다",
+        onCancel: {},
+        onConfirm: {}
+    )
+        .frame(width: 343)
+        .padding(16)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(MomensColor.uiBlackBackground)
+}
+
+#Preview("Modal - Custom Button Labels") {
+    MomensModal(
+        title: "로그아웃하시겠습니까?",
+        message: "다시 로그인하여 이용할 수 있습니다",
+        cancelText: "닫기",
+        confirmText: "로그아웃",
         onCancel: {},
         onConfirm: {}
     )
