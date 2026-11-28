@@ -11,10 +11,11 @@ struct MomensModal: View {
     var body: some View {
         VStack(spacing: 18) {
             VStack(spacing: 8) {
-                Image("ic_warning_modal")
+                Image(.icWarning)
                     .resizable()
-                    .frame(width: 40, height: 40)
-                    .padding(4)
+                    .scaledToFit()
+                    .frame(width: 48, height: 48)
+                    .accessibilityHidden(true)
 
                 VStack(spacing: 4) {
                     Text(title)
